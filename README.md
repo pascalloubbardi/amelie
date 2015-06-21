@@ -1,2 +1,2 @@
 # amelie
-CRM - gestion de prospect
+CRM - gestion de prospects
