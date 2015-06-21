@@ -1,4 +1,0 @@
-class FichequalifierController < ApplicationController
-  def index
-  end
-end

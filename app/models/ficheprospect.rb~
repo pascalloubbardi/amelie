@@ -1,2 +1,0 @@
-class Ficheprospect < ActiveRecord::Base
-end
