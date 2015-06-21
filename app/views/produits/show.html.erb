@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Referenceproduit:</strong>
+  <%= @produit.referenceproduit %>
+</p>
+
+<p>
+  <strong>Nonproduit:</strong>
+  <%= @produit.nonproduit %>
+</p>
+
+<p>
+  <strong>Origineproduit:</strong>
+  <%= @produit.origineproduit %>
+</p>
+
+<p>
+  <strong>Conditionnementproduit:</strong>
+  <%= @produit.conditionnementproduit %>
+</p>
+
+<p>
+  <strong>Gammeproduit:</strong>
+  <%= @produit.gammeproduit %>
+</p>
+
+<p>
+  <strong>Conseilutilisation:</strong>
+  <%= @produit.conseilutilisation %>
+</p>
+
+<p>
+  <strong>Prixventeproduit:</strong>
+  <%= @produit.prixventeproduit %>
+</p>
+
+<p>
+  <strong>Prixachatproduit:</strong>
+  <%= @produit.prixachatproduit %>
+</p>
+
+<p>
+  <strong>Categoriesproduit:</strong>
+  <%= @produit.categoriesproduit_id %>
+</p>
+
+<%= link_to 'Edit', edit_categoriesproduit_produit_path(@categoriesproduit, @produit) %> |
+<%= link_to 'Back', categoriesproduit_produits_path(@categoriesproduit) %>

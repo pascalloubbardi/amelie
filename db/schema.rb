@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621124213) do
+ActiveRecord::Schema.define(version: 20150621165040) do
+
+  create_table "categoriesproduits", force: :cascade do |t|
+    t.string   "nomcategorie", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "ficheprospects", force: :cascade do |t|
     t.integer  "age",                         limit: 4
@@ -29,6 +35,20 @@ ActiveRecord::Schema.define(version: 20150621124213) do
     t.integer  "prospect_id",                 limit: 4
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+  end
+
+  create_table "produits", force: :cascade do |t|
+    t.string   "referenceproduit",       limit: 255
+    t.string   "nonproduit",             limit: 255
+    t.string   "origineproduit",         limit: 255
+    t.string   "conditionnementproduit", limit: 255
+    t.string   "gammeproduit",           limit: 255
+    t.string   "conseilutilisation",     limit: 255
+    t.string   "prixventeproduit",       limit: 255
+    t.string   "prixachatproduit",       limit: 255
+    t.string   "categoriesproduit_id",   limit: 255
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "prospects", force: :cascade do |t|

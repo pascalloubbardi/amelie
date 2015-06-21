@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  resources :categoriesproduits do
+    resources :produits
+  end
+
   get 'fichequalifier/index'
 
   resources :ficheprospects

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  referenceproduit: MyString
+  nonproduit: MyString
+  origineproduit: MyString
+  conditionnementproduit: MyString
+  gammeproduit: MyString
+  conseilutilisation: MyString
+  prixventeproduit: MyString
+  prixachatproduit: MyString
+  categoriesproduit_id: MyString
+
+two:
+  referenceproduit: MyString
+  nonproduit: MyString
+  origineproduit: MyString
+  conditionnementproduit: MyString
+  gammeproduit: MyString
+  conseilutilisation: MyString
+  prixventeproduit: MyString
+  prixachatproduit: MyString
+  categoriesproduit_id: MyString

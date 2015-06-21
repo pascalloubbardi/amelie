@@ -1,0 +1,1 @@
+json.extract! @produit, :id, :referenceproduit, :nonproduit, :origineproduit, :conditionnementproduit, :gammeproduit, :conseilutilisation, :prixventeproduit, :prixachatproduit, :categoriesproduit_id, :created_at, :updated_at

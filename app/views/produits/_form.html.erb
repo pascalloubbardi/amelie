@@ -1,0 +1,53 @@
+<%= form_for([@categoriesproduit, @produit]) do |f| %>
+  <% if @produit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produit.errors.count, "error") %> prohibited this produit from being saved:</h2>
+
+      <ul>
+      <% @produit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :referenceproduit %><br>
+    <%= f.text_field :referenceproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :nonproduit %><br>
+    <%= f.text_field :nonproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :origineproduit %><br>
+    <%= f.text_field :origineproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :conditionnementproduit %><br>
+    <%= f.text_field :conditionnementproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :gammeproduit %><br>
+    <%= f.text_field :gammeproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :conseilutilisation %><br>
+    <%= f.text_field :conseilutilisation %>
+  </div>
+  <div class="field">
+    <%= f.label :prixventeproduit %><br>
+    <%= f.text_field :prixventeproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :prixachatproduit %><br>
+    <%= f.text_field :prixachatproduit %>
+  </div>
+  <div class="field">
+    <%= f.label :categoriesproduit_id %><br>
+    <%= f.text_field :categoriesproduit_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
