@@ -1,0 +1,2 @@
+module FicheprospectsHelper
+end

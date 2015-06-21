@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ficheprospects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th>Profession</th>
+      <th>Famille</th>
+      <th>Consomationcomplement</th>
+      <th>Frequenceconsomation</th>
+      <th>Beneficerechercher</th>
+      <th>Categoriecomplementconsomer</th>
+      <th>Satisfactioneffetcomplement</th>
+      <th>Originecomplement</th>
+      <th>Budgetcomplement</th>
+      <th>Lieuachatcomplement</th>
+      <th>Commentaireprospect</th>
+      <th>Prospect</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ficheprospects.each do |ficheprospect| %>
+      <tr>
+        <td><%= ficheprospect.age %></td>
+        <td><%= ficheprospect.profession %></td>
+        <td><%= ficheprospect.famille %></td>
+        <td><%= ficheprospect.consomationcomplement %></td>
+        <td><%= ficheprospect.frequenceconsomation %></td>
+        <td><%= ficheprospect.beneficerechercher %></td>
+        <td><%= ficheprospect.categoriecomplementconsomer %></td>
+        <td><%= ficheprospect.satisfactioneffetcomplement %></td>
+        <td><%= ficheprospect.originecomplement %></td>
+        <td><%= ficheprospect.budgetcomplement %></td>
+        <td><%= ficheprospect.lieuachatcomplement %></td>
+        <td><%= ficheprospect.commentaireprospect %></td>
+        <td><%= ficheprospect.prospect_id %></td>
+        <td><%= link_to 'Show', ficheprospect %></td>
+        <td><%= link_to 'Edit', edit_ficheprospect_path(ficheprospect) %></td>
+        <td><%= link_to 'Destroy', ficheprospect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ficheprospect', new_ficheprospect_path %>

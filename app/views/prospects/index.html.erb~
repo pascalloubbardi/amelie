@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prospects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Codepostal</th>
+      <th>Ville</th>
+      <th>Adresse</th>
+      <th>Genre</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Mail</th>
+      <th>Tel1</th>
+      <th>Tel2</th>
+      <th>Tel3</th>
+      <th>Mobile</th>
+      <th>Fax</th>
+      <th>Site</th>
+      <th>Comment</th>
+      <th>Activite</th>
+      <th>Habitat</th>
+      <th>Agemoyen</th>
+      <th>Tel1prospection</th>
+      <th>Tel2prospection</th>
+      <th>Tel3prospection</th>
+      <th>Mobileprospection</th>
+      <th>Faxprospection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prospects.each do |prospect| %>
+      <tr>
+        <td><%= prospect.date %></td>
+        <td><%= prospect.codepostal %></td>
+        <td><%= prospect.ville %></td>
+        <td><%= prospect.adresse %></td>
+        <td><%= prospect.genre %></td>
+        <td><%= prospect.nom %></td>
+        <td><%= prospect.prenom %></td>
+        <td><%= prospect.mail %></td>
+        <td><%= prospect.tel1 %></td>
+        <td><%= prospect.tel2 %></td>
+        <td><%= prospect.tel3 %></td>
+        <td><%= prospect.mobile %></td>
+        <td><%= prospect.fax %></td>
+        <td><%= prospect.site %></td>
+        <td><%= prospect.comment %></td>
+        <td><%= prospect.activite %></td>
+        <td><%= prospect.habitat %></td>
+        <td><%= prospect.agemoyen %></td>
+        <td><%= prospect.tel1prospection %></td>
+        <td><%= prospect.tel2prospection %></td>
+        <td><%= prospect.tel3prospection %></td>
+        <td><%= prospect.mobileprospection %></td>
+        <td><%= prospect.faxprospection %></td>
+        <td><%= link_to 'Show', prospect %></td>
+        <td><%= link_to 'Edit', edit_prospect_path(prospect) %></td>
+        <td><%= link_to 'Destroy', prospect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prospect', new_prospect_path %>

@@ -1,0 +1,55 @@
+<h2 class="">&Eacute;diter le prospect</h2>
+
+      <br>
+
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <div class="portlet portlet-boxed">
+
+            <div class="portlet-header">
+              <h4 class="portlet-title">
+                <u><i class="fa fa-toggle-down portlet-icon"></i><%= @prospect.genre %> <%= @prospect.nom.upcase %> <%= @prospect.prenom %></u>
+              </h4>
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-body">
+
+              <div class="row">
+
+                <div class="col-sm-6" style="border-right:1px solid #ccc">
+
+		    <%= render 'form' %>
+		<h4>Navigation</h4>	
+		  <%= link_to 'Afficher la fiche prospect', @prospect, class: 'btn btn-info btn-lg btn-block' %>		  
+
+		  <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>
+                  
+		<br><br>
+                 
+
+                </div> <!-- /.col -->
+
+              </div> <!-- /.row -->
+
+             
+
+              
+              
+            </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet --> 
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+
+</div> <!-- /#wrapper -->
+

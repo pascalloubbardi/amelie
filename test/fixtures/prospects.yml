@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  codepostal: MyString
+  ville: MyString
+  adresse: MyString
+  genre: MyString
+  nom: MyString
+  prenom: MyString
+  mail: MyString
+  tel1: MyString
+  tel2: MyString
+  tel3: MyString
+  mobile: MyString
+  fax: MyString
+  site: MyString
+  comment: MyString
+  activite: MyString
+  habitat: MyString
+  agemoyen: MyString
+  tel1prospection: MyString
+  tel2prospection: false
+  tel3prospection: false
+  mobileprospection: false
+  faxprospection: false
+
+two:
+  date: MyString
+  codepostal: MyString
+  ville: MyString
+  adresse: MyString
+  genre: MyString
+  nom: MyString
+  prenom: MyString
+  mail: MyString
+  tel1: MyString
+  tel2: MyString
+  tel3: MyString
+  mobile: MyString
+  fax: MyString
+  site: MyString
+  comment: MyString
+  activite: MyString
+  habitat: MyString
+  agemoyen: MyString
+  tel1prospection: MyString
+  tel2prospection: false
+  tel3prospection: false
+  mobileprospection: false
+  faxprospection: false

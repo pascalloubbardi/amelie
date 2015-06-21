@@ -1,0 +1,206 @@
+<div class="layout layout-stack-sm layout-main-left">
+
+          <div class="col-sm-4 col-sm-push-8 layout-sidebar">
+
+
+	  <p>
+	  <%= link_to('SUIVANT', @prospect.next_prospect, class: 'btn btn-secondary btn-lg btn-block') if @prospect.next_prospect %>
+	  <%= link_to('PRECEDENT', @prospect.previous_prospect, class: 'btn btn-info btn-lg btn-block') if @prospect.previous_prospect  %>
+  	  </p>
+
+
+            <div class="well text-center">
+              <p><i class="fa fa-phone fa-5x text-muted"></i></p>
+              <h4>D&eacute;marchage:&nbsp;&nbsp;<%= @prospect.tel1prospection %></h4>
+	      <a data-toggle="modal" href="#basicModal" class="btn btn-default demo-element">Modifier l&acute;autorisation</a>		
+            </div> <!-- /.well -->
+
+            <br>
+
+            <div class="portlet">
+
+              <h4>Fiche prospect</h4>
+
+              
+
+		<% if @prospect.ficheprospect.nil? %> 
+		  <%= link_to 'Cr&eacute;er une fiche prospect'.html_safe, new_prospect_ficheprospect_path(@prospect), class: 'btn btn-warning btn-lg btn-block' %>
+		<% else %>
+		  <% Ficheprospect.find(:id => :prospect_id) do |ficheid| %>	
+		    <%= link_to 'Fiche prospect', prospect_ficheprospect_path(@prospect, ficheid), class: 'btn btn-secondary btn-lg btn-block' %>
+		  <% end %>	
+		<% end %>
+
+            </div> <!-- /.list-group -->
+	    
+	    <h4>Navigation</h4>
+	      	
+              <%= link_to 'Editer le prospect', edit_prospect_path(@prospect), data: { no_turbolink: true }, class: 'btn btn-warning btn-lg btn-block' %>
+	      <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>  	
+
+          </div> <!-- /.portlet -->
+
+        </div> <!-- /.layout-sidebar -->
+
+
+        <div id="faq-questions" class="col-sm-8 col-sm-pull-4 layout-main" style="padding-top:0px">
+	  
+	  <% [:notice, :error, :alert, :success].each do |level| %>
+            <% unless flash[level].blank? %>
+	      <div class="alert alert-success">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+                <p id="notice"><%= notice %></p>
+              </div>
+	    <% end %>
+          <% end %>
+	<br>	
+          <h2 class=""><%= @prospect.genre %> <%= @prospect.nom.upcase %> <%= @prospect.prenom %></h2>
+
+          
+          <div class="heading-block">
+            <h4>
+              <%= @prospect.codepostal %> <%= @prospect.ville %>
+            </h4>
+          </div> <!-- /.heading-block -->
+		
+      <div class="row">
+
+        <div class="well">
+            <h4>Prospect ajout&eacute; le <span class="text-primary"><%= @prospect.created_at.strftime("%d - %m - %Y")  %></span></h4>
+            <p>Contacter le <%= @prospect.created_at.strftime("%d - %m - %Y")  %>, par <strong>utilisateur</strong>.</p>
+
+            <br>
+
+            <h5 style="color:#337AB7">Profile du prospect</h5>
+
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th width="30%">Civilit&eacute;</th>
+                    <td><%= @prospect.genre %> </td>
+                  </tr>
+
+                  <tr>
+                    <th>Nom</th>
+                    <td><%= @prospect.nom %></td>
+                  </tr>
+
+                  <tr>
+                    <th>Pr&eacute;nom</th>
+                    <td><%= @prospect.prenom %></td>
+                  </tr>
+		  <tr>
+                    <th>Age</th>
+                    <td><%= @prospect.agemoyen.upcase %></td>
+                  </tr>
+                </tbody>
+              </table>
+
+	    <h5 style="color:#337AB7">Adresse</h5>
+
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th width="30%">Numero et rue</th>
+                    <td><%= @prospect.adresse %></td>
+                  </tr>
+
+                  <tr>
+                    <th>Ville</th>
+                    <td><%= @prospect.ville %></td>
+                  </tr>
+
+             	  <tr>
+                    <th>Code postal</th>
+                    <td><%= @prospect.codepostal %></td>
+                  </tr>
+                </tbody>
+              </table>
+	    
+	    <h5 style="color:#337AB7">Coordonn&eacute;e</h5>
+
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th width="30%">T&eacute;l&eacute;phone 1</th>
+                    <td><%= @prospect.tel1 %></td>
+                  </tr>
+
+                  <tr>
+                    <th>T&eacute;l&eacute;phone 2</th>
+                    <td><%= @prospect.tel2 %></td>
+                  </tr>
+
+             	  <tr>
+                    <th>T&eacute;l&eacute;phone 3</th>
+                    <td><%= @prospect.tel3 %></td>
+                  </tr>
+		  <tr>
+                    <th>Mobile</th>
+                    <td><%= @prospect.mobile %></td>
+                  </tr>
+                  <tr>
+                    <th>Activit&eacute;</th>
+                    <td><%= @prospect.mail %></td>
+                  </tr>
+                </tbody>
+              </table>
+
+	    <h5 style="color:#337AB7">Divers</h5>
+
+              <table class="table">
+                <tbody>
+                    <th>Activit&eacute;</th>
+                    <td><%= @prospect.activite %></td>
+                  </tr>
+		  <tr>
+                    <th>Commentaire</th>
+                    <td><%= @prospect.comment %></td>
+                  </tr>
+                </tbody>
+              </table>		
+	
+
+          </div> <!-- /.well -->
+
+      </div> <!-- /.row -->
+          
+    </div> <!-- /.col -->
+
+  </div> <!-- /.row -->
+
+    
+
+
+
+<div id="basicModal" class="modal fade">
+
+        <div class="modal-dialog">
+
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 class="modal-title">Modifier l&acute;autorisation de prospection T&eacute;l&eacute;phonique</h3>
+            </div> <!-- /.modal-header -->
+
+            <div class="modal-body">
+
+	      <div class="form-group">	
+              <%= form_for @prospect, :url => { :action => "update"} do |f| %>		
+	      <%= f.select :tel1prospection, [['Autorise le demarchage telephonique', 'Oui'], ['Interdit le demarchage telephonique', 'Interdit']], {prompt: 'Autorisation de teleprospection'}, {class: 'form-control ui-select'}  %>	
+	    
+	    </div> <!-- /.modal-body -->
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              <%= f.submit 'Sauvegarder', class: 'btn btn-primary' %>
+	    <% end %>	
+            </div> <!-- /.modal-footer -->
+
+          </div> <!-- /.modal-content -->
+
+        </div><!-- /.modal-dialog -->
+
+      </div><!-- /.modal -->  
+</div><!-- /.modal fade--> 

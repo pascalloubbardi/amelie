@@ -1,0 +1,2 @@
+module FichequalifierHelper
+end

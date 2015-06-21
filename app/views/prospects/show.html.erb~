@@ -1,0 +1,119 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @prospect.date %>
+</p>
+
+<p>
+  <strong>Codepostal:</strong>
+  <%= @prospect.codepostal %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @prospect.ville %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @prospect.adresse %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @prospect.genre %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @prospect.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @prospect.prenom %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @prospect.mail %>
+</p>
+
+<p>
+  <strong>Tel1:</strong>
+  <%= @prospect.tel1 %>
+</p>
+
+<p>
+  <strong>Tel2:</strong>
+  <%= @prospect.tel2 %>
+</p>
+
+<p>
+  <strong>Tel3:</strong>
+  <%= @prospect.tel3 %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @prospect.mobile %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @prospect.fax %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @prospect.site %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @prospect.comment %>
+</p>
+
+<p>
+  <strong>Activite:</strong>
+  <%= @prospect.activite %>
+</p>
+
+<p>
+  <strong>Habitat:</strong>
+  <%= @prospect.habitat %>
+</p>
+
+<p>
+  <strong>Agemoyen:</strong>
+  <%= @prospect.agemoyen %>
+</p>
+
+<p>
+  <strong>Tel1prospection:</strong>
+  <%= @prospect.tel1prospection %>
+</p>
+
+<p>
+  <strong>Tel2prospection:</strong>
+  <%= @prospect.tel2prospection %>
+</p>
+
+<p>
+  <strong>Tel3prospection:</strong>
+  <%= @prospect.tel3prospection %>
+</p>
+
+<p>
+  <strong>Mobileprospection:</strong>
+  <%= @prospect.mobileprospection %>
+</p>
+
+<p>
+  <strong>Faxprospection:</strong>
+  <%= @prospect.faxprospection %>
+</p>
+
+<%= link_to 'Edit', edit_prospect_path(@prospect) %> |
+<%= link_to 'Back', prospects_path %>
