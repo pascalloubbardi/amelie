@@ -49,3 +49,4 @@ gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'jquery-datatables-rails', '~> 3.0.0'
 gem 'bootstrap-datepicker-rails'
+gem 'paperclip'

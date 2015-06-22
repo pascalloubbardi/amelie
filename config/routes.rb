@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-
-  resources :categoriesproduits do
-    resources :produits
-  end
+  resources :produits
+  resources :categoriesproduits
 
   get 'fichequalifier/index'
 

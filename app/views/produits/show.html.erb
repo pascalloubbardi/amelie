@@ -45,5 +45,11 @@
   <%= @produit.categoriesproduit_id %>
 </p>
 
-<%= link_to 'Edit', edit_categoriesproduit_produit_path(@categoriesproduit, @produit) %> |
-<%= link_to 'Back', categoriesproduit_produits_path(@categoriesproduit) %>
+<%= link_to 'Edit', edit_produit_path(@produit) %> |
+<%= link_to 'Back', produits_path %>
+<br>
+<%= link_to image_tag(@produit.image.url(:med)), @produit.image.url %>
+
+<%= image_tag @produit.image.url %>
+<%= image_tag @produit.image.url(:medium) %>
+<%= image_tag @produit.image.url(:thumb) %>

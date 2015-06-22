@@ -14,7 +14,7 @@
       <th>Prixventeproduit</th>
       <th>Prixachatproduit</th>
       <th>Categoriesproduit</th>
-      <th colspan="3"></th>
+      <th colspan="4">Action</th>
     </tr>
   </thead>
 
@@ -30,9 +30,10 @@
         <td><%= produit.prixventeproduit %></td>
         <td><%= produit.prixachatproduit %></td>
         <td><%= produit.categoriesproduit_id %></td>
-        <td><%= link_to 'Show', categoriesproduit_produit_path(@categoriesproduit, produit) %></td>
-        <td><%= link_to 'Edit', edit_categoriesproduit_produit_path(@categoriesproduit, produit) %></td>
-        <td><%= link_to 'Destroy', [@categoriesproduit, produit], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to Categoriesproduit.find(produit.categoriesproduit_id).nomcategorie, categoriesproduit_path(produit.categoriesproduit_id) %></td>
+        <td><%= link_to 'Show', produit %></td>
+        <td><%= link_to 'Edit', edit_produit_path(produit) %></td>
+        <td><%= link_to 'Destroy', produit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +41,6 @@
 
 <br>
 
-<%= link_to 'New Produit', new_categoriesproduit_produit_path(@categoriesproduit) %>
+<%= link_to 'New Produit', new_produit_path %>
+<br>
+

@@ -1,4 +1,4 @@
-<%= form_for([@categoriesproduit, @produit]) do |f| %>
+<%= form_for (@produit), html: { multipart: true } do |f| %>
   <% if @produit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@produit.errors.count, "error") %> prohibited this produit from being saved:</h2>
@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label :referenceproduit %><br>
     <%= f.text_field :referenceproduit %>
+  </div>
+  <div class="field">
+  <%= f.label :categoriesproduit %><br>
+  <%= select_tag(:categoriesproduit_id, options_for_select(@categoriesproduits), required: true ) %>
   </div>
   <div class="field">
     <%= f.label :nonproduit %><br>
@@ -46,6 +50,9 @@
   <div class="field">
     <%= f.label :categoriesproduit_id %><br>
     <%= f.text_field :categoriesproduit_id %>
+  </div>
+  <div class="field">
+  <%= f.file_field :image %>   
   </div>
   <div class="actions">
     <%= f.submit %>

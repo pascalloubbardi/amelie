@@ -1,36 +1,36 @@
 class ProduitsController < ApplicationController
   before_action :set_produit, only: [:show, :edit, :update, :destroy]
 
-  before_action :load_categoriesproduit
-
   # GET /produits
   # GET /produits.json
   def index
-    @produits = @categoriesproduit.produits.all
+    @produits = Produit.all
   end
 
   # GET /produits/1
   # GET /produits/1.json
   def show
-  @produit = @categoriesproduit.produits.find(params[:id])
   end
 
   # GET /produits/new
   def new
-    @produit = @categoriesproduit.produits.new
+    @produit = Produit.new
+    @categoriesproduits = Categoriesproduit.all.map{|c| [ c.nomcategorie, c.id ] }
   end
 
   # GET /produits/1/edit
   def edit
+  @categoriesproduits = Categoriesproduit.all.map{|c| [ c.nomcategorie, c.id ] }
   end
 
   # POST /produits
   # POST /produits.json
   def create
-    @produit = @categoriesproduit.produits.new(produit_params)
+    @produit = Produit.new(produit_params)
+    @produit.categoriesproduit_id = params[:categoriesproduit_id]
     respond_to do |format|
       if @produit.save
-        format.html { redirect_to [@categoriesproduit, @produit], notice: 'Produit was successfully created.' }
+        format.html { redirect_to @produit, notice: 'Produit was successfully created.' }
         format.json { render :show, status: :created, location: @produit }
       else
         format.html { render :new }
@@ -42,10 +42,10 @@ class ProduitsController < ApplicationController
   # PATCH/PUT /produits/1
   # PATCH/PUT /produits/1.json
   def update
-    @produit = @categoriesproduit.produits.find(params[:id])
+     @produit.categoriesproduit_id = params[:categoriesproduit_id]
     respond_to do |format|
       if @produit.update(produit_params)
-        format.html { redirect_to [@categoriesproduit, @produit], notice: 'Produit was successfully updated.' }
+        format.html { redirect_to @produit, notice: 'Produit was successfully updated.' }
         format.json { render :show, status: :ok, location: @produit }
       else
         format.html { render :edit }
@@ -57,7 +57,6 @@ class ProduitsController < ApplicationController
   # DELETE /produits/1
   # DELETE /produits/1.json
   def destroy
-    @produit = @categoriesproduit.produits.find(params[:id])
     @produit.destroy
     respond_to do |format|
       format.html { redirect_to produits_url, notice: 'Produit was successfully destroyed.' }
@@ -71,12 +70,8 @@ class ProduitsController < ApplicationController
       @produit = Produit.find(params[:id])
     end
 
-    def load_categoriesproduit
-      @categoriesproduit = Categoriesproduit.find(params[:categoriesproduit_id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def produit_params
-      params.require(:produit).permit(:referenceproduit, :nonproduit, :origineproduit, :conditionnementproduit, :gammeproduit, :conseilutilisation, :prixventeproduit, :prixachatproduit, :categoriesproduit_id)
+      params.require(:produit).permit(:referenceproduit, :nonproduit, :origineproduit, :conditionnementproduit, :gammeproduit, :conseilutilisation, :prixventeproduit, :prixachatproduit, :categoriesproduit_id, :image)
     end
 end

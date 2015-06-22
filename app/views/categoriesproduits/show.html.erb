@@ -1,9 +1,65 @@
+<div class="row">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nomcategorie:</strong>
-  <%= @categoriesproduit.nomcategorie %>
-</p>
+<h2 class="">Produits de la categorie: <%= @categoriesproduit.nomcategorie %></h2>
 
-<%= link_to 'Edit', edit_categoriesproduit_path(@categoriesproduit) %> |
-<%= link_to 'Back', categoriesproduits_path %>
+      
+      <div class="portlet portlet-default">
+
+        <div class="portlet-header">
+          <h4 class="portlet-title">
+            <u>Actuellement <%= Produit.includes(:categoriesproduit).where(:categoriesproduit => :categoriesproduit_id).count %> r&eacute;f&eacute;rence dans la cat&eacute;gorie <%= @categoriesproduit.nomcategorie %></u>
+          </h4>
+        </div> <!-- /.portlet-header -->
+
+        <div class="portlet-body">
+
+<table id="prospects" class="table table-striped table-bordered table-hover ui-datatable">
+  <thead>
+    <tr>
+      <th>R&eacute;f&eacute;rence</th>
+      <th>Image</th>
+      <th>Nom</th>
+      <th>Origine</th>
+      <th>Conditionnement</th>
+      <th>Composition</th>
+      <th>D&eacute;sctiption</th>	
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Produit.where(categoriesproduit_id: @categoriesproduit.id).each do |produit| %>
+      <tr>
+        <td><%= produit.referenceproduit %></td>
+        <td><%= image_tag produit.image.url(:thumb) %></td>
+        <td><%= produit.nonproduit %></td>
+        <td><%= produit.origineproduit %></td>
+        <td><%= produit.conditionnementproduit %></td>
+        <td>Composition produit a ajouter</td>
+        <td>Description produit a ajouter</td>	
+        <td width="100px">
+	    
+	    <%= link_to produit_path(produit), class: "btn btn-secondary" do %>
+  	    <i class="fa  fa-arrow-circle-right"></i>&nbsp;&nbsp;<%= produit.nonproduit %>
+            <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+	
+          
+        </div> <!-- /.portlet-body -->
+
+      </div> <!-- /.portlet -->
+
+    </div> <!-- /.row -->
+
+  <p>
+  <%= link_to 'Toutes les Cat&eacute;gories'.html_safe, categoriesproduits_path, class: 'btn btn-secondary btn-lg'  %>
+  &nbsp;&nbsp;
+  <%= link_to '&Eacute;diter la cat&eacute;gorie'.html_safe, edit_categoriesproduit_path(@categoriesproduit), class: 'btn btn-warning btn-lg'  %>  
+  </p>
+
