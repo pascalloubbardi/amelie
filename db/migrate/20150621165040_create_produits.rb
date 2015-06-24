@@ -6,7 +6,7 @@ class CreateProduits < ActiveRecord::Migration
       t.string :origineproduit
       t.string :conditionnementproduit
       t.string :gammeproduit
-      t.string :conseilutilisation
+      t.text :conseilutilisation
       t.string :prixventeproduit
       t.string :prixachatproduit
       t.string :categoriesproduit_id

@@ -42,15 +42,15 @@
 	<td><%= prospect.tel1prospection %></td>	
         <td width="100px">
 	    
-	    <%= link_to prospect, class: "btn btn-xs btn-secondary label" do %>
+	    <%= link_to prospect, data: {no_turbolink: true}, class: "btn btn-secondary label" do %>
   	    <i class="fa fa-times"></i>
             <% end %>
 	    &nbsp;	
-	    <%= link_to edit_prospect_path(prospect), class: "btn btn-xs btn-warning label" do %>
+	    <%= link_to edit_prospect_path(prospect), class: "btn btn-warning label" do %>
   	    <i class="fa fa-pencil"></i>
             <% end %>
             &nbsp;
-	    <%= link_to prospect, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-primary label" do %>
+	    <%= link_to prospect, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary label" do %>
   	    <i class="fa fa-trash-o"></i>
             <% end %>
         </td>

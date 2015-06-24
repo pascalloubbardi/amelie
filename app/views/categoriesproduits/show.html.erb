@@ -9,7 +9,7 @@
 
         <div class="portlet-header">
           <h4 class="portlet-title">
-            <u>Actuellement <%= Produit.includes(:categoriesproduit).where(:categoriesproduit => :categoriesproduit_id).count %> r&eacute;f&eacute;rence dans la cat&eacute;gorie <%= @categoriesproduit.nomcategorie %></u>
+            <u>Actuellement <%= @categoriesproduit.produits.count %> r&eacute;f&eacute;rence dans la cat&eacute;gorie <%= @categoriesproduit.nomcategorie %></u>
           </h4>
         </div> <!-- /.portlet-header -->
 
@@ -22,9 +22,8 @@
       <th>Image</th>
       <th>Nom</th>
       <th>Origine</th>
+      <th>Pr&eacute;sentation</th>
       <th>Conditionnement</th>
-      <th>Composition</th>
-      <th>D&eacute;sctiption</th>	
       <th>Action</th>
     </tr>
   </thead>
@@ -35,9 +34,8 @@
         <td><%= image_tag produit.image.url(:thumb) %></td>
         <td><%= produit.nonproduit %></td>
         <td><%= produit.origineproduit %></td>
-        <td><%= produit.conditionnementproduit %></td>
-        <td>Composition produit a ajouter</td>
-        <td>Description produit a ajouter</td>	
+        <td><%= produit.presentationprod %></td>
+        <td><%= produit.conditionnementproduit %></td>	
         <td width="100px">
 	    
 	    <%= link_to produit_path(produit), class: "btn btn-secondary" do %>

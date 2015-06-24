@@ -1,55 +1,29 @@
-<h2 class="">&Eacute;diter le prospect</h2>
-
+<div class="layout layout-stack-sm layout-main-left">
+  <div class="col-sm-8 layout-main">
+    <div class="heading-block">
+      <h4> &Eacute;diter le prospect</h4>
+    </div>
+    <%= render 'form' %>
+  </div> <!-- /.col -->
+    <div class="col-sm-4 layout-sidebar">
+      <div class="heading-block">
+        <h4>Navigation</h4>
+      </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= link_to 'Afficher la fiche prospect', @prospect, class: 'btn btn-info btn-lg btn-block' %>
+          </div> <!-- /.col -->
+        </div> <!-- /.row -->
       <br>
+        <div class="row">
+          <div class="col-md-12">
+            <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>
+          </div> <!-- /.col -->
+        </div> <!-- /.row -->
+      </div> <!-- /.col -->     
+    </div>
 
-      <div class="row">
 
-        <div class="col-sm-12">
 
-          <div class="portlet portlet-boxed">
 
-            <div class="portlet-header">
-              <h4 class="portlet-title">
-                <u><i class="fa fa-toggle-down portlet-icon"></i><%= @prospect.genre %> <%= @prospect.nom.upcase %> <%= @prospect.prenom %></u>
-              </h4>
-            </div> <!-- /.portlet-header -->
-
-            <div class="portlet-body">
-
-              <div class="row">
-
-                <div class="col-sm-6" style="border-right:1px solid #ccc">
-
-		    <%= render 'form' %>
-		<h4>Navigation</h4>	
-		  <%= link_to 'Afficher la fiche prospect', @prospect, class: 'btn btn-info btn-lg btn-block' %>		  
-
-		  <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>
-                  
-		<br><br>
-                 
-
-                </div> <!-- /.col -->
-
-              </div> <!-- /.row -->
-
-             
-
-              
-              
-            </div> <!-- /.portlet-body -->
-
-          </div> <!-- /.portlet --> 
-
-        </div> <!-- /.col -->
-
-      </div> <!-- /.row -->
-
-      </div> <!-- /.row -->
-
-    </div> <!-- /.container -->
-
-  </div> <!-- .content -->
-
-</div> <!-- /#wrapper -->
 

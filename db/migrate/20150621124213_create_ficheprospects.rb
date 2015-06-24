@@ -12,7 +12,7 @@ class CreateFicheprospects < ActiveRecord::Migration
       t.string :originecomplement
       t.integer :budgetcomplement
       t.string :lieuachatcomplement
-      t.string :commentaireprospect
+      t.text :commentaireprospect
       t.integer :prospect_id
 
       t.timestamps null: false

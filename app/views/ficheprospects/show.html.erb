@@ -14,10 +14,10 @@
 
             <div class="portlet">
 
-            <%= link_to '&Eacute;diter la fiche prospect'.html_safe, edit_prospect_ficheprospect_path(@prospect, @ficheprospect), class: 'btn btn-warning btn-lg btn-block' %>	
+            <%= link_to '&Eacute;diter la fiche de qualification'.html_safe, edit_prospect_ficheprospect_path(@prospect, @ficheprospect), class: 'btn btn-warning btn-lg btn-block' %>	
  	    <br>	
             <h4>Navigation</h4>
-	    <%= link_to 'Fiche prospect', prospect_path(@prospect), class: 'btn btn-secondary btn-lg btn-block' %>	
+	    <%= link_to 'Prospect', prospect_path(@prospect), data: { no_turbolink: true }, class: 'btn btn-secondary btn-lg btn-block' %>	
             <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>
 
           </div> <!-- /.portlet -->
@@ -48,8 +48,13 @@
 
               <table class="table">
                 <tbody>
+		  <tr>
+                    <th width="30%">Identifiant prospect</th>
+                    <td><%= @ficheprospect.prospect_id %></td>
+                  </tr>
+
                   <tr>
-                    <th width="30%">Age</th>
+                    <th width="30%">Age r&eacute;el</th>
                     <td><%= @ficheprospect.age %></td>
                   </tr>
 
@@ -114,14 +119,6 @@
                     <th>Commentaire</th>
                     <td><%= @ficheprospect.commentaireprospect %></td>
                   </tr>
-		  <tr>
-                    <th>Commentaire</th>
-                    <td><%= @ficheprospect.prospect_id %></td>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <td></td>
-                  </tr>	
 
                 </tbody>
               </table>

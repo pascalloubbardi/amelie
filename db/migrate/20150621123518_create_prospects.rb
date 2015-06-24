@@ -15,7 +15,7 @@ class CreateProspects < ActiveRecord::Migration
       t.string :mobile
       t.string :fax
       t.string :site
-      t.string :comment
+      t.text :comment
       t.string :activite
       t.string :habitat
       t.string :agemoyen

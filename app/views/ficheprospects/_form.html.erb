@@ -25,8 +25,8 @@
 
           <div class="portlet portlet-boxed">
 
-            <div class="portlet-header">
-              <h4 class="portlet-title">
+            <div class="portlet-header" style="background-color: #354B5E">
+              <h4 class="portlet-title" style="color:#fff">
                 <u><i class="fa fa-user portlet-icon"></i>Profile personnel</u>
               </h4>
             </div> <!-- /.portlet-header -->
@@ -39,17 +39,17 @@
 
                   <div class="select2-container form-control">
 		    <div class="form-group">
-		      <%= f.label :age, 'Age' %>
+		      <%= f.label :age, 'Age r&eacute;el'.html_safe, class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre age?</span>	
     		      <%= f.number_field :age %>	
   		    </div>
   		    <div class="form-group">
-    		      <%= f.label :profession, 'Profession' %>
+    		      <%= f.label :profession, 'Profession', class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre profession actuellement?</span>	
     		      <%= f.select :profession, [['Salarie', 'Salarie'], ['Entrepreuneur', 'Entrepreuneur'], ['Retraite', 'Retraite'], ['Sans emploi', 'Sans emploi']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %> 
   		    </div>
   		    <div class="form-group">
-    		      <%= f.label :famille, 'Situation familiale' %>
+    		      <%= f.label :famille, 'Situation familiale', class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre situation familiale actuellement?</span>
     		      <%= f.select :famille, [['celibataire', 'celibataire'], ['marier', 'marier'], ['divorcer', 'divorcer'], ['veuf', 'veuf'], ['concubinage', 'concubinage']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>		
   		    </div>		 
@@ -70,8 +70,8 @@
 
           <div class="portlet portlet-boxed">
 
-            <div class="portlet-header">
-              <h4 class="portlet-title">
+            <div class="portlet-header" style="background-color: #354B5E">
+              <h4 class="portlet-title" style="color:#fff">
                 <u><i class="fa fa-list-alt portlet-icon"></i>Profile consomateur</u>
               </h4>
             </div> <!-- /.portlet-header -->
@@ -84,47 +84,47 @@
 
                   <div class="select2-container form-control">
 		    <div class="form-group">
-		      <%= f.label :consomationcomplement, 'Consomation de complements alimentaires de confort' %>
+		      <%= f.label :consomationcomplement, 'Consomation de complements alimentaires de confort', class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Consomez-vous des complements alimentaires? => checker si la r&eacute;ponse est positive.</span>
     		      <%= f.check_box :consomationcomplement %> 		
   		    </div>
 		  <div class="form-group">
-    		    <%= f.label :categoriecomplementconsomer, 'Categories de complements alimentaires consomer' %>
+    		    <%= f.label :categoriecomplementconsomer, 'Categories de complements alimentaires consomer', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Quels complements alimentaires consomez-vous?</span>
     		    <%= f.text_area(:categoriecomplementconsomer, cols: 50, rows: 5)  %>
 		    </div>
   		  <div class="form-group">
-    		    <%= f.label :frequenceconsomation, 'Frequence de consomation' %>
+    		    <%= f.label :frequenceconsomation, 'Frequence de consomation', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">A quelle fr&eacute;quence consomez-vous ces complements alimentaires?</span>
     		    <%= f.select :frequenceconsomation, [['quotidienne', 'quotidienne'], ['hebdomadaire', 'hebdomadaire'], ['mensuelle', 'mensuelle'], ['occasionnelle', 'occasionnelle']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
   		  </div>
   		  <div class="form-group">
-    		    <%= f.label :beneficerechercher, 'Benefice rechercher' %>
+    		    <%= f.label :beneficerechercher, 'Benefice rechercher', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Quels b&eacute;n&eacute;fices recherchez vous avec les complement alimentaires que vous consomez?.</span>
     		    <%= f.text_area :beneficerechercher %>	
   		  </div>		 
                   <div class="form-group">
-    		    <%= f.label :satisfactioneffetcomplement, 'Satisfaction des complements alimentaires' %>
+    		    <%= f.label :satisfactioneffetcomplement, 'Satisfaction des complements alimentaires', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">&Ecirc;tes-vous satisfait(e) des complements alimentaires que vous consomez?.</span>
     		    <%= f.select :satisfactioneffetcomplement, [['satisfait', 'satisfait'], ['pas satisfait', 'pas satisfait'], ['peu satisfait', 'peu satisfait']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
 		  <div class="form-group">
-    		    <%= f.label :originecomplement, 'Origine des complements alimentaires' %>
+    		    <%= f.label :originecomplement, 'Origine des complements alimentaires', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Consomez-vous des complements alimentaires d&acute;origine biologique ou pas?.</span>
 		    <%= f.select :originecomplement, [['biologique', 'biologique'], ['Non biologique', 'Non biologique']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
 		  <div class="form-group">
-    		    <%= f.label :lieuachatcomplement, 'Lieux d achat des complements alimentaires ' %>
+    		    <%= f.label :lieuachatcomplement, 'Lieux d achat des complements alimentaires ', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Ou achetez-vous les complements alimentaires que vous consommez?.</span>
     		    <%= f.select :lieuachatcomplement, [['pharmacie', 'pharmacie'], ['magasin specialise', 'magasin specialise'], ['grande surface', 'grande surface'], ['internet', 'internet'], ['vente sur catalogue', 'vente sur catalogue'], ['vente directe', 'vente directe']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
 		  <div class="form-group">
-    		    <%= f.label :budgetcomplement, 'Buget mensuel' %>
+    		    <%= f.label :budgetcomplement, 'Buget mensuel', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Quel est votre budget mensuel?</span>
 		    <%= f.select :budgetcomplement, [['50', '50'], ['100', '100'], ['200', '200'], ['300', '300'], ['400', '400']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
 		  <div class="form-group">
-    		    <%= f.label :commentaireprospect, 'Commentaire' %><br>
+    		    <%= f.label :commentaireprospect, 'Commentaire', class: 'text-primary' %><br>
     		    <%= f.text_area(:commentaireprospect, cols: 50, rows: 5) %>	
   		  </div>
 

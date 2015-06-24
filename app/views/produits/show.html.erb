@@ -1,55 +1,196 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Referenceproduit:</strong>
-  <%= @produit.referenceproduit %>
-</p>
 
-<p>
-  <strong>Nonproduit:</strong>
-  <%= @produit.nonproduit %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Origineproduit:</strong>
-  <%= @produit.origineproduit %>
-</p>
+        <div class="col-md-3 col-sm-5">
 
-<p>
-  <strong>Conditionnementproduit:</strong>
-  <%= @produit.conditionnementproduit %>
-</p>
+          <div class="profile-avatar">
+            <%= image_tag @produit.image.url(:medium), class: 'profile-avatar-img img-responsive thumbnail' %>
+          </div> <!-- /.profile-avatar -->
+<!--
+          <div class="list-group">  
 
-<p>
-  <strong>Gammeproduit:</strong>
-  <%= @produit.gammeproduit %>
-</p>
+            <a href="javascript:;" class="list-group-item">
+              <i class="fa fa-shopping-cart text-primary"></i> &nbsp;&nbsp;Ajouter au panier
 
-<p>
-  <strong>Conseilutilisation:</strong>
-  <%= @produit.conseilutilisation %>
-</p>
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
 
-<p>
-  <strong>Prixventeproduit:</strong>
-  <%= @produit.prixventeproduit %>
-</p>
+            <a href="javascript:;" class="list-group-item">
+              <i class="fa fa-book text-primary"></i> &nbsp;&nbsp;Projects
 
-<p>
-  <strong>Prixachatproduit:</strong>
-  <%= @produit.prixachatproduit %>
-</p>
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+              <span class="badge">3</span>
+            </a> 
 
-<p>
-  <strong>Categoriesproduit:</strong>
-  <%= @produit.categoriesproduit_id %>
-</p>
+            <a href="javascript:;" class="list-group-item">
+              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;Messages
 
-<%= link_to 'Edit', edit_produit_path(@produit) %> |
-<%= link_to 'Back', produits_path %>
-<br>
-<%= link_to image_tag(@produit.image.url(:med)), @produit.image.url %>
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
 
-<%= image_tag @produit.image.url %>
-<%= image_tag @produit.image.url(:medium) %>
-<%= image_tag @produit.image.url(:thumb) %>
+            <a href="javascript:;" class="list-group-item">
+              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;Friends
+
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
+
+            <a href="javascript:;" class="list-group-item">
+              <i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;Settings
+
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
+          </div> --><!-- /.list-group -->
+
+
+
+        </div> <!-- /.col -->
+
+
+
+        <div class="col-md-6 col-sm-7">
+
+          <br class="visible-xs">
+
+          <h3><%= @produit.nonproduit.upcase %></h3>
+
+          <h5 class="text-muted">R&eacute;f&eacuterence: <%= @produit.referenceproduit %></h5>
+
+          <hr>
+
+           <div class="heading-block">
+            <h4>
+              Pr&eacute;sentation
+            </h4>
+          </div> <!-- /.heading-block -->
+
+          <br>
+
+          <p><% if @produit.presentationprod.nil? %>Veuillez ajouter une pr&eacute;sentation au produit.<% else %><%= @produit.presentationprod %><% end %></p>
+
+          <hr>
+
+
+          
+
+          <div class="heading-block">
+            <h4>
+              D&eacute;scription
+            </h4>
+          </div> <!-- /.heading-block -->
+ 
+          <br>
+
+          <p><% if @produit.descripionprod.nil? %>Veuillez ajouter une d&eacute;scription au produit.<% else %><%= @produit.descripionprod %><% end %></p>
+
+          <hr>
+
+
+
+          <div class="panel-group accordion-panel" id="accordion-paneled">
+
+          <div class="panel open">
+
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseOne">
+                  
+                  Composition
+              </a>
+              </h4>
+            </div> <!-- /.panel-heading -->
+
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+             <% if @produit.compositionprod.nil? %>Veuillez ajouter la composition du produit.<% else %><%= @produit.compositionprod %><% end %>
+              </div> <!-- /.panel-body -->
+            </div> <!-- /.panel-collapse -->
+
+          </div> <!-- /.panel -->
+
+          <div class="panel ">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseTwo">
+                Conditionnement
+                </a>
+              </h4>
+            </div> <!-- /.panel-heading -->
+
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+              <% if @produit.conditionnementproduit.nil? %>Veuillez ajouter le type de conditionnement du produit.<% else %><%= @produit.conditionnementproduit %><% end %>
+              </div> <!-- /.panel-body -->
+            </div> <!-- /.panel-collapse -->
+
+          </div> <!-- /.panel -->
+
+          <div class="panel ">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseThree">
+                Conseils d&acute;utilisation
+                </a>
+              </h4>
+            </div> <!-- /.panel-heading -->
+
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+	      <% if @produit.conseilutilisation.nil? %>Veuillez ajouter les conseils d&acute;utilisation du produit.<% else %><%= @produit.conseilutilisation %><% end %>
+              </div> <!-- /.panel-body -->
+            </div> <!-- /.panel-collapse -->
+
+          </div> <!-- /.panel -->
+
+        </div> <!-- /.accordion -->
+            
+          </div> <!-- /.col -->
+
+
+          <div class="col-md-3">
+
+            <div class="heading-block">
+              <h5>
+                Donn&eacute;es
+              </h5>
+            </div> <!-- /.heading-block -->
+
+            <div class="list-group">  
+
+              <a href="javascript:;" class="list-group-item">
+                  <h3 class="pull-right"><i class="fa fa-list-ul text-primary"></i></h3>
+		  <p class="list-group-item-text" style="margin-bottom:5px">Cat&eacute;gorie:</p>	
+                  <h4 class="list-group-item-heading"><%= Categoriesproduit.find(@produit.categoriesproduit_id).nomcategorie.upcase %></h4>
+                                    
+                </a>
+
+              <a href="javascript:;" class="list-group-item">
+                <h3 class="pull-right"><i class="fa fa-archive  text-primary"></i></h3>
+                <p class="list-group-item-text" style="margin-bottom:5px">Quantit&eacute; disponible</p>
+		<h4 class="list-group-item-heading"><% if @produit.stockprod.nil? %> 0 <% else %><%= @produit.stockprod %><% end %></h4>
+              </a>
+
+              <a href="javascript:;" class="list-group-item">
+                <h3 class="pull-right"><i class="fa fa-leaf  text-primary"></i></h3>
+		<p class="list-group-item-text"  style="margin-bottom:5px">Origine</p>
+                <h4 class="list-group-item-heading"><%= @produit.origineproduit %></h4>
+              </a>
+            </div> <!-- /.list-group -->
+
+            <br>
+
+            <div class="heading-block">
+              <h5>
+                Navigation
+              </h5>
+            </div> <!-- /.heading-block -->
+
+            <%= link_to '&Eacute;diter le produit'.html_safe, edit_produit_path(@produit), data: {no_turbolink: true}, class: 'btn btn-warning btn-lg btn-block' %>
+	    <%= link_to 'Liste des produits', produits_path, data: {no_turbolink: true}, class: 'btn btn-secondary btn-lg btn-block' %>
+            <%= link_to 'Cat&eacute;gories de produits'.html_safe, categoriesproduits_path, data: {no_turbolink: true}, class: 'btn btn-info btn-lg btn-block' %>
+
+          </div> <!-- /.col -->
+
+        </div> <!-- /.row -->
+

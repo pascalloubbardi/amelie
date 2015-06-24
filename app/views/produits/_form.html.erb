@@ -1,3 +1,5 @@
+      
+
 <%= form_for (@produit), html: { multipart: true } do |f| %>
   <% if @produit.errors.any? %>
     <div id="error_explanation">
@@ -11,50 +13,226 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :referenceproduit %><br>
-    <%= f.text_field :referenceproduit %>
-  </div>
-  <div class="field">
-  <%= f.label :categoriesproduit %><br>
-  <%= select_tag(:categoriesproduit_id, options_for_select(@categoriesproduits), required: true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :nonproduit %><br>
-    <%= f.text_field :nonproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :origineproduit %><br>
-    <%= f.text_field :origineproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :conditionnementproduit %><br>
-    <%= f.text_field :conditionnementproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :gammeproduit %><br>
-    <%= f.text_field :gammeproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :conseilutilisation %><br>
-    <%= f.text_field :conseilutilisation %>
-  </div>
-  <div class="field">
-    <%= f.label :prixventeproduit %><br>
-    <%= f.text_field :prixventeproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :prixachatproduit %><br>
-    <%= f.text_field :prixachatproduit %>
-  </div>
-  <div class="field">
-    <%= f.label :categoriesproduit_id %><br>
-    <%= f.text_field :categoriesproduit_id %>
-  </div>
-  <div class="field">
-  <%= f.file_field :image %>   
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <div class="portlet portlet-boxed">
+
+            <div class="portlet-header">
+              <h4 class="portlet-title">
+                <u><i class="fa fa-toggle-down portlet-icon"></i>Donn&eacute;es principales</u>
+              </h4>
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-body">
+
+              <div class="row">
+
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :referenceproduit, 'R&eacute;f&eacute;rence'.html_safe, class: 'col-md-3 control-label' %></h5>    
+    		      <%= f.text_field :referenceproduit, class: 'form-control' %>
+		    </div>
+  		  </div> 
+
+		</div><!-- /.col -->
+
+		<div class="col-sm-6">
+
+		  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :nonproduit, 'Nom', class: 'col-md-3 control-label' %></h5>    
+    		      <%= f.text_field :nonproduit, class: 'form-control' %>
+		    </div>
+  		  </div>
+                
+		</div><!-- /.col -->
+
+	      </div> <!-- /.row -->  
+ <br><br>
+              <div class="row">
+
+                <div class="col-sm-6">
+		  
+		  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :conditionnementproduit, 'Conditionnement', class: 'col-md-3 control-label' %></h5>    
+    		      <%= f.select :conditionnementproduit, [['Gelule', 'Gelule'], ['Poudre', 'Poudre'], ['Systeme transdermique', 'Systeme transdermique'], ['Cataplasme', 'Cataplasme'], ['Creme', 'Creme'], ['gel', 'gel'], ['Infusion', 'Infusion'], ['Emultion', 'Emultion'], ['Sirop', 'Sirop'], ['Solution', 'Solution'], ['Suspention', 'Suspention']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select', style: "text-transform: uppercase"} %>
+		    </div>
+  		  </div>
+		
+
+                </div> <!-- /.col -->
+
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :categoriesproduit, 'Cat&eacute;gorie'.html_safe, class: 'col-md-3 control-label' %></h5>
+		      <%= select_tag(:categoriesproduit_id, options_for_select(@categoriesproduits), class: 'form-control', style: "text-transform: uppercase", required: true ) %>	
+		    </div>
+  		  </div>
+		
+		</div><!-- /.col -->
+ 
+	      </div> <!-- /.row -->
+<br><br>	      
+	      <div class="row">
+	
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :origineproduit, 'Origine'.html_safe, class: 'col-md-3 control-label' %></h5>
+		      <%= f.select :origineproduit, [['Biologique', 'Biologique'], ['Non-biologique', 'Non-biologique']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select', style: "text-transform: uppercase"} %> 	
+		    </div>
+  		  </div>
+		
+		</div><!-- /.col --> 
+
+  		<div class="col-sm-6">  
+		
+		  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :gammeproduit, 'Gamme'.html_safe, class: 'col-md-3 control-label' %></h5>
+		      <%= f.select :gammeproduit, [['Pleine Nature', 'Pleine Nature'], ['Nutritherapie', 'Nutritherapie'], ['Cosmetique', 'Cosmetique'], ['Huiles essentielles & vegetales', 'Huiles essentielles & vegetales']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select', style: "text-transform: uppercase"} %> 	
+		    </div>
+  		  </div> 
+                </div> <!-- /.col -->
+
+              </div> <!-- /.row -->
+ <br>
+       <hr>
+ <br>       
+              <div class="row">
+
+                <div class="col-sm-6">
+
+                 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :descripionprod, 'D&eacute;scription'.html_safe, class: 'col-md-3 control-label' %></h5>    
+    		      <%= f.text_area :descripionprod, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+	        </div><!-- /.col -->
+		
+			        
+		
+                <div class="col-sm-6">
+
+                 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :prixventeproduit, 'Prix de vente TTC'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :prixventeproduit, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+	        </div><!-- /.col -->
+
+	      </div> <!-- /.row -->
+
+	      <br><br>			
+
+	      <div class="row">  	
+
+       	        <div class="col-sm-6">
+
+  		  <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :presentationprod, 'Pr&eacute;sentation'.html_safe, class: 'col-md-3 control-label' %></h5>    
+    		      <%= f.text_area :presentationprod, class: 'form-control' %>
+		    </div>
+  		  </div>
+
+               </div><!-- /.col -->
+
+			        
+		
+                <div class="col-sm-6">
+
+                 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :prixachatproduit, 'Prix d&acute;achat'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :prixachatproduit, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+	        </div><!-- /.col -->   
+
+	      </div> <!-- /.row -->   
+
+	      <br><br>	              
+
+              <div class="row"> 
+     
+       	       <div class="col-sm-6">
+
+		 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :conseilutilisation, 'Conseil d&acute;utilisation'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.text_area :conseilutilisation, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+               </div><!-- /.col -->
+		
+                <div class="col-sm-6"  style="margin-bottom:20px">
+
+                 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :stockprod, 'Disponibilit&eacute; en unit&eacute;'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :stockprod, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+	        </div><!-- /.col -->
+
+             </div> <!-- /.row -->
+
+           </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet --> 
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+  
+
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="portlet portlet-boxed demo-icheck">
+
+            <div class="portlet-header">
+              <h4 class="portlet-title">
+                <u><i class="fa fa-check-square portlet-icon"></i>S&eacute;l&eacute;ctionnez une image</u>
+              </h4>
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-body">
+
+	    <div class="form-group">
+              
+              <span class="btn btn-default btn-file"><%= f.file_field :image%></span>
+            </div>
+
+            </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet --> 
+
+        </div> <!-- /.col -->
+
+        <div class="col-md-6">
+
+         <%= f.submit 'Sauvegarder', class: 'btn btn-primary btn-lg btn-block' %>
+
+        </div> <!-- /.col -->
+
+ </div> <!-- /.row -->
+
 <% end %>

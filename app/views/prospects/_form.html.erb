@@ -11,107 +11,319 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :date %><br>
-    <%= f.text_field :date, 'data-behaviour' => 'datepicker', class: 'form-control' %>
 
-	
-		
-  </div>
-  <div class="form-group">
-    <%= f.label :codepostal, 'Code Postal' %><br>
-    <%= f.number_field :codepostal, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :ville, 'Ville' %><br>
-    <%= f.text_field :ville, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :adresse, 'Adresse' %><br>
-    <%= f.text_field :adresse, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :genre, 'Civilit&eacute'.html_safe %><br>
-    <%= f.select :genre, [['Mme', 'Mme'], ['M', 'M'], ['Mme/M', 'Mme/M']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :nom, 'Nom' %><br>
-    <%= f.text_field :nom, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :prenom, 'Pr&eacute;nom'.html_safe %><br>
-    <%= f.text_field :prenom, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :mail, 'Adresse Email' %><br>
-    <%= f.text_field :mail, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel1, 'T&eacute;l&eacute,phone 1'.html_safe %><br>
-    <%= f.number_field :tel1, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel2, 'T&eacute;l&eacute,phone 2'.html_safe %><br>
-    <%= f.number_field :tel2, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel3, 'T&eacute;l&eacute,phone 3'.html_safe %><br>
-    <%= f.number_field :tel3, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :mobile, 'T&eacute;l&eacute,phone Mobile'.html_safe %><br>
-    <%= f.number_field :mobile, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :fax, 'Fax' %><br>
-    <%= f.number_field :fax, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :site, 'Site Internet' %><br>
-    <%= f.text_field :site, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :comment, 'Commentaire' %><br>
-    <%= f.text_area :comment, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :activite, 'Activit&eacute;'.html_safe %><br>
-    <%= f.select :activite, [['Salarie', 'Salarie'], ['Entrepreuneur', 'Entrepreuneur'], ['Retraite', 'Retraite'], ['Sans emploi', 'Sans emploi']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :habitat, 'Type d&acute;habitat'.html_safe %><br>
-    <%= f.text_field :habitat, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :agemoyen, 'Age' %><br>
-    <%= f.text_field :agemoyen, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel1prospection, 'Prospection T&eacute;l&eacutephone 1'.html_safe %><br>
-    <%= f.select :tel1prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel2prospection, 'Prospection T&eacute;l&eacutephone 2'.html_safe %><br>
-    <%= f.select :tel2prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :tel3prospection, 'Prospection T&eacute;l&eacutephone 3'.html_safe %><br>
-    <%= f.select :tel3prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :mobileprospection, 'Prospection Mobile' %><br>
-    <%= f.select :mobileprospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :faxprospection, 'Prospection Fax' %><br>
-    <%= f.select :faxprospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
-  </div>
+<div class="row">
+
+  <div class="col-sm-12">
+
+    <div class="portlet portlet-boxed">
+
+      <div class="portlet-header">
+        <h4 class="portlet-title">
+          <u><i class="fa fa-toggle-down portlet-icon"></i>Donn&eacute;es personnelles</u>
+        </h4>
+      </div> <!-- /.portlet-header -->
+
+        <div class="portlet-body">
+          <div class="row">
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :date, 'Date', class: 'col-md-3 control-label' %>
+                  <%= f.text_field :date, 'data-behaviour' => 'datepicker', class: 'form-control' %>
+                </div>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :genre, 'Civilit&eacute'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.select :genre, [['Mme', 'Mme'], ['M', 'M'], ['Mme/M', 'Mme/M']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+            </div>
+
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+	<div class="row">
+	  <div class="col-sm-6">
+	     <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :nom, 'Nom', class: 'col-md-3 control-label' %>
+                  <%= f.text_field :nom, class: 'form-control' %>
+                </div>
+              </div>	         
+	  </div> <!-- /.col -->
+
+	  <div class="col-sm-6">
+	     <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :prenom, 'Pr&eacute;nom'.html_safe, class: 'col-md-3 control-label' %>
+                  <%= f.text_field :prenom, class: 'form-control' %>
+                </div>
+              </div>	                
+	  </div> <!-- /.col -->
+	</div> <!-- /.row -->
+<br>
+	<div class="row">
+	  <div class="col-sm-6">
+	     <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :agemoyen, 'Age', class: 'col-md-3 control-label' %>
+                  <%= f.number_field :nom, class: 'form-control' %>
+                </div>
+              </div>	         
+	  </div> <!-- /.col -->
+	  <div class="col-sm-6">
+	     <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :activite, 'Activit&eacute;'.html_safe , class: 'col-md-3 control-label' %>
+                  <%= f.select :activite, [['Salarie', 'Salarie'], ['Entrepreuneur', 'Entrepreuneur'], ['Retraite', 'Retraite'], ['Sans emploi', 'Sans emploi']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+              </div>	         
+	  </div> <!-- /.col -->
+	  
+	</div> <!-- /.row -->
+<br>
+	<div class="row">
+	  <div class="col-sm-12">
+            <div class="form-group">
+              <div class="col-md-7">
+                <%= f.label :comment, 'Commentaire' %><br>
+                <%= f.text_area :comment, class: 'form-control' %>
+              </div>
+            </div>         
+	  </div> <!-- /.col -->
+
+        </div> <!-- /.row -->
+<br>          
+      </div> <!-- /.portlet-body -->
+
+    </div> <!-- /.portlet --> 
 
   </div> <!-- /.col -->
 
-<div class="col-sm-6">
+</div> <!-- /.row -->
+
+<!-- -------------------------------------->
+
+<div class="row">
+
+  <div class="col-md-6">
+
+    <div class="portlet portlet-boxed demo-icheck">
+
+      <div class="portlet-header">
+        <h4 class="portlet-title">
+          <u><i class="fa fa-check-square portlet-icon"></i>Adresse</u>
+        </h4>
+      </div> <!-- /.portlet-header -->
+
+        <div class="portlet-body">
+          <div class="row">
+	    <div class="col-sm-12">
+	      <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.label :adresse, 'Adresse', class: 'col-md-3 control-label' %>
+                  <%= f.text_field :adresse, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
 <br>
-<%= f.submit 'Sauvegarder', class: 'btn btn-secondary btn-lg btn-block' %>
+          <div class="row">
+	    <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.label :codepostal, 'Code Postal', class: 'col-md-12 control-label' %>
+                  <%= f.text_field :codepostal, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+          <div class="row">
+	    <div class="col-sm-12">
+	      <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.label :ville, 'Ville', class: 'col-md-12 control-label' %>
+                  <%= f.text_field :ville, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+        </div> <!-- /.portlet-body -->
+
+    </div> <!-- /.portlet --> 
+
+  </div> <!-- /.col -->
+
+    <div class="col-md-6">
+
+      <div class="portlet portlet-boxed demo-icheck">
+
+        <div class="portlet-header">
+          <h4 class="portlet-title">
+            <u><i class="fa fa-dot-circle-o portlet-icon"></i>Communication</u>
+          </h4>
+        </div> <!-- /.portlet-header -->
+
+      <div class="portlet-body">
+
+          <div class="row">
+	    <div class="col-sm-12">
+	      <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.label :mail, 'E-mail', class: 'col-md-3 control-label' %>
+                  <%= f.text_field :mail, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+          <div class="row">
+	    <div class="col-sm-12">
+	      <div class="form-group">
+                <div class="col-md-6">
+                  <%= f.label :fax, 'Fax', class: 'col-md-12 control-label' %>
+                  <%= f.text_field :fax, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+          <div class="row">
+	    <div class="col-sm-12">
+	      <div class="form-group">
+                <div class="col-md-12">
+                  <%= f.label :site, 'Site internet', class: 'col-md-12 control-label' %>
+                  <%= f.text_field :site, class: 'form-control' %>
+                </div>
+              </div>	         
+	    </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>              
+      </div> <!-- /.portlet-body -->
+
+    </div> <!-- /.portlet --> 
+
+  </div> <!-- /.col -->
+
+</div> <!-- /.row -->
+
+<!---------------------------------------------------->
+
+<div class="row">
+
+  <div class="col-sm-12">
+
+    <div class="portlet portlet-boxed">
+
+      <div class="portlet-header">
+        <h4 class="portlet-title">
+          <u><i class="fa fa-toggle-down portlet-icon"></i>T&eacute;l&eacute;phone</u>
+        </h4>
+      </div> <!-- /.portlet-header -->
+
+        <div class="portlet-body">
+          <div class="row">
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel1, 'T&eacute;l&eacute;phone 1'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.text_field :tel1, class: 'form-control' %>
+                </div>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel1prospection, 'Prospection Tel 1'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.select :tel1prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+            </div>
+
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br><hr>
+	<div class="row">
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel2, 'T&eacute;l&eacute;phone 2'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.text_field :tel2, class: 'form-control' %>
+                </div>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel2prospection, 'Prospection Tel 2'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.select :tel2prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+            </div>
+
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br><hr>
+	<div class="row">
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel3, 'T&eacute;l&eacute;phone 3'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.text_field :tel3, class: 'form-control' %>
+                </div>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :tel3prospection, 'Prospection Tel 3'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.select :tel3prospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+            </div>
+
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br><hr>
+	<div class="row">
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :mobile, 'T&eacute;l&eacute;phone mobile'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.text_field :mobile, class: 'form-control' %>
+                </div>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+	      <div class="form-group">
+                <div class="col-md-7">
+                  <%= f.label :mobileprospection, 'Prospection mobile'.html_safe, class: 'col-md-12 control-label' %>
+                  <%= f.select :mobileprospection, [['oui', 'oui'], ['non', 'non']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
+                </div>
+            </div>
+
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+<br>
+      </div> <!-- /.portlet-body -->
+
+    </div> <!-- /.portlet --> 
+
+  </div> <!-- /.col -->
+
+</div> <!-- /.row --> 
+	<div class="row"> 
+          <div class="col-sm-12">
+            <%= f.submit 'Sauvegarder', class: 'btn btn-secondary btn-lg btn-block' %>
+          </div>
+        </div> 
 <% end %>
 <script type="text/javascript">
   	  $('[data-behaviour~=datepicker]').datepicker({

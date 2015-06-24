@@ -1,51 +1,91 @@
-<div class="layout layout-stack-sm layout-main-left">
-
-          <div class="col-sm-4 col-sm-push-8 layout-sidebar">
 
 
-	  <p>
-	  <%= link_to('SUIVANT', @prospect.next_prospect, class: 'btn btn-secondary btn-lg btn-block') if @prospect.next_prospect %>
-	  <%= link_to('PRECEDENT', @prospect.previous_prospect, class: 'btn btn-info btn-lg btn-block') if @prospect.previous_prospect  %>
+<div class="layout layout-main-right layout-stack-sm">
+  <div class="col-md-3 col-sm-4 layout-sidebar">
+
+    <div class="nav-layout-sidebar-skip">
+      <strong>Tab Navigation</strong> / <a href="#settings-content">Skip to Content</a>	
+    </div>
+
+          <p>
+	  <%= link_to('SUIVANT', @prospect.next_prospect, data: {no_turbolink: true}, class: 'btn btn-secondary btn-lg btn-block') if @prospect.next_prospect %>
+	  <%= link_to('PRECEDENT', @prospect.previous_prospect, data: {no_turbolink: true}, class: 'btn btn-info btn-lg btn-block') if @prospect.previous_prospect  %>
   	  </p>
+  
+      <ul id="myTab" class="nav nav-layout-sidebar nav-stacked">
+        <li class="active">
+          <a aria-expanded="true" href="#profile-tab" data-toggle="tab">
+            <i class="fa fa-user"></i> 
+              &nbsp;&nbsp;Donn&eacute; Prospect
+          </a>
+        </li>
 
+<% if @prospect.ficheprospect.nil? %>
 
-            <div class="well text-center">
-              <p><i class="fa fa-phone fa-5x text-muted"></i></p>
-              <h4>D&eacute;marchage:&nbsp;&nbsp;<%= @prospect.tel1prospection %></h4>
-	      <a data-toggle="modal" href="#basicModal" class="btn btn-default demo-element">Modifier l&acute;autorisation</a>		
-            </div> <!-- /.well -->
+<% else %>
+        <li class="">
+          <a aria-expanded="false" href="#password-tab" data-toggle="tab">
+            <i class="fa fa-file-text-o"></i> 
+              &nbsp;&nbsp;Fiche de qualification
+          </a>
+        </li>
+<% end %>
+      </ul>
+<% if @prospect.ficheprospect.nil? %>
+  <p style='padding-bottom:15px'><%= link_to 'Qualifier le prospect'.html_safe, new_prospect_ficheprospect_path(@prospect), class: 'btn btn-danger btn-lg btn-block' %></p>
+<% else %>
+
+<% end %>
+
+          
+
+    <div class="well text-center">
+      <p><i class="fa fa-phone fa-5x text-muted"></i></p>
+        <h4>D&eacute;marchage:&nbsp;&nbsp;<%= @prospect.tel1prospection %></h4>
+	  <a data-toggle="modal" href="#basicModal" class="btn btn-default demo-element">Modifier l&acute;autorisation</a>		
+    </div> <!-- /.well -->
 
             <br>
 
-            <div class="portlet">
 
-              <h4>Fiche prospect</h4>
+<% if @prospect.ficheprospect.nil? %>
+<% else %>
+<% if @prospect.ficheprospect.consomationcomplement == true %>
+			
+    <div class="well text-center">
+      <p><i class="fa fa-check-circle-o fa-5x text-muted text-success"></i></p>
+        <h4 class="text-success">Prospect consomateur de complement alimentaire</h4>		
+    </div> <!-- /.well -->
 
-              
+            <br>
+<% else %>		
+<% end %>
+<% end %>
 
-		<% if @prospect.ficheprospect.nil? %> 
-		  <%= link_to 'Cr&eacute;er une fiche prospect'.html_safe, new_prospect_ficheprospect_path(@prospect), class: 'btn btn-warning btn-lg btn-block' %>
-		<% else %>
-		  <% Ficheprospect.find(:id => :prospect_id) do |ficheid| %>	
-		    <%= link_to 'Fiche prospect', prospect_ficheprospect_path(@prospect, ficheid), class: 'btn btn-secondary btn-lg btn-block' %>
-		  <% end %>	
-		<% end %>
+    <h4>Navigation</h4>    	
+      <%= link_to 'Editer le prospect', edit_prospect_path(@prospect), data: { no_turbolink: true }, class: 'btn btn-warning btn-lg btn-block' %>
+      <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %> 
+    
+     <br>
 
-            </div> <!-- /.list-group -->
-	    
-	    <h4>Navigation</h4>
-	      	
-              <%= link_to 'Editer le prospect', edit_prospect_path(@prospect), data: { no_turbolink: true }, class: 'btn btn-warning btn-lg btn-block' %>
-	      <%= link_to 'Liste des prospects', prospects_path, data: { no_turbolink: true }, class: 'btn btn-success btn-lg btn-block' %>  	
-
-          </div> <!-- /.portlet -->
-
-        </div> <!-- /.layout-sidebar -->
+    <h4>suppression</h4>
+    <%= link_to @prospect, method: :delete, data: { confirm: 'Etes-vous sure?' }, class: "btn btn-danger btn-lg btn-block " do %>
+  	    <i class="fa fa-trash-o"></i> Supprimer le prospect
+            <% end %>
+      
+  </div> <!-- /.col -->
 
 
-        <div id="faq-questions" class="col-sm-8 col-sm-pull-4 layout-main" style="padding-top:0px">
-	  
-	  <% [:notice, :error, :alert, :success].each do |level| %>
+
+
+
+
+
+<div class="col-md-9 col-sm-8 layout-main">
+  <div id="settings-content" class="tab-content stacked-content">
+    <div class="tab-pane fade active in" id="profile-tab">
+
+         <% [:notice, :error, :alert, :success].each do |level| %>
             <% unless flash[level].blank? %>
 	      <div class="alert alert-success">
                 <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
@@ -53,125 +93,170 @@
               </div>
 	    <% end %>
           <% end %>
-	<br>	
-          <h2 class=""><%= @prospect.genre %> <%= @prospect.nom.upcase %> <%= @prospect.prenom %></h2>
-
-          
-          <div class="heading-block">
-            <h4>
-              <%= @prospect.codepostal %> <%= @prospect.ville %>
-            </h4>
-          </div> <!-- /.heading-block -->
-		
-      <div class="row">
-
-        <div class="well">
-            <h4>Prospect ajout&eacute; le <span class="text-primary"><%= @prospect.created_at.strftime("%d - %m - %Y")  %></span></h4>
-            <p>Contacter le <%= @prospect.created_at.strftime("%d - %m - %Y")  %>, par <strong>utilisateur</strong>.</p>
-
-            <br>
-
-            <h5 style="color:#337AB7">Profile du prospect</h5>
-
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th width="30%">Civilit&eacute;</th>
-                    <td><%= @prospect.genre %> </td>
-                  </tr>
-
-                  <tr>
-                    <th>Nom</th>
-                    <td><%= @prospect.nom %></td>
-                  </tr>
-
-                  <tr>
-                    <th>Pr&eacute;nom</th>
-                    <td><%= @prospect.prenom %></td>
-                  </tr>
-		  <tr>
-                    <th>Age</th>
-                    <td><%= @prospect.agemoyen.upcase %></td>
-                  </tr>
-                </tbody>
-              </table>
-
-	    <h5 style="color:#337AB7">Adresse</h5>
-
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th width="30%">Numero et rue</th>
-                    <td><%= @prospect.adresse %></td>
-                  </tr>
-
-                  <tr>
-                    <th>Ville</th>
-                    <td><%= @prospect.ville %></td>
-                  </tr>
-
-             	  <tr>
-                    <th>Code postal</th>
-                    <td><%= @prospect.codepostal %></td>
-                  </tr>
-                </tbody>
-              </table>
-	    
-	    <h5 style="color:#337AB7">Coordonn&eacute;e</h5>
-
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th width="30%">T&eacute;l&eacute;phone 1</th>
-                    <td><%= @prospect.tel1 %></td>
-                  </tr>
-
-                  <tr>
-                    <th>T&eacute;l&eacute;phone 2</th>
-                    <td><%= @prospect.tel2 %></td>
-                  </tr>
-
-             	  <tr>
-                    <th>T&eacute;l&eacute;phone 3</th>
-                    <td><%= @prospect.tel3 %></td>
-                  </tr>
-		  <tr>
-                    <th>Mobile</th>
-                    <td><%= @prospect.mobile %></td>
-                  </tr>
-                  <tr>
-                    <th>Activit&eacute;</th>
-                    <td><%= @prospect.mail %></td>
-                  </tr>
-                </tbody>
-              </table>
-
-	    <h5 style="color:#337AB7">Divers</h5>
-
-              <table class="table">
-                <tbody>
-                    <th>Activit&eacute;</th>
-                    <td><%= @prospect.activite %></td>
-                  </tr>
-		  <tr>
-                    <th>Commentaire</th>
-                    <td><%= @prospect.comment %></td>
-                  </tr>
-                </tbody>
-              </table>		
-	
-
-          </div> <!-- /.well -->
-
-      </div> <!-- /.row -->
-          
-    </div> <!-- /.col -->
-
-  </div> <!-- /.row -->
-
-    
 
 
+      <div class="heading-block">
+        <h3>
+          <%= @prospect.genre %> <%= @prospect.nom.upcase %> <%= @prospect.prenom %>
+        </h3>
+      </div> <!-- /.heading-block -->
+
+      <div class="feed-item feed-item-idea">
+
+        <div class="feed-icon bg-primary">
+          <i class="fa fa-user"></i>
+        </div> <!-- /.feed-icon -->
+
+        <div class="feed-subject">
+
+          <h4><span class="text-primary">Identifiant:</span> <%= @prospect.id %></h4>
+<hr>
+          <h4><span class="text-primary">Civilit&eacute;:</span> <%= @prospect.genre %></h4>
+<hr>
+          <h4><span class="text-primary">Nom:</span> <%= @prospect.nom %></h4>
+<hr>            
+          <h4><span class="text-primary">Pr&eacute;nom:</span> <%= @prospect.prenom %></h4>
+<hr>            
+          <h4><span class="text-primary">Age estimation:</span> <%= @prospect.agemoyen.upcase %></h4>
+<hr>
+          <h4><span class="text-primary">Commentaire:</span></h4>
+            <div class="feed-content">
+              <ul class="icons-list">
+                <li>
+                  <i class="icon-li fa fa-quote-left"></i>
+                  <% if @prospect.comment.nil? %>Pas de commentaire actuellement<% else %><div style="width:250px;backgroung-color:red"><%= @prospect.comment %></div><% end %>
+                </li>
+              </ul>
+            </div> <!-- /.feed-content --> 
+
+        </div> <!-- /.feed-subject -->
+      </div>
+
+       <div class="feed-item feed-item-image">
+
+         <div class="feed-icon bg-secondary">
+           <i class="fa fa-home"></i>
+         </div> <!-- /.feed-icon -->
+
+         <div class="feed-subject">
+
+           <h4><span class="text-secondary">Adresse:</span> <%= @prospect.adresse %></h4>
+<hr>
+           <h4><span class="text-secondary">Code postal:</span> <%= @prospect.codepostal %></h4>
+<hr>
+           <h4><span class="text-secondary">Ville:</span> <%= @prospect.ville %></h4>          
+<hr>
+           <h4><span class="text-secondary">Afficher l&acute;adresse sur la carte:</span>&nbsp;&nbsp; <a href="http://www.google.fr/maps/place/<%= @prospect.adresse %>  <%= @prospect.codepostal %> <%= @prospect.ville %>" target="_blank"><i class="fa fa-map-marker" style="font-size: 50px;"></i></a></h4> 
+
+         </div> <!-- /.feed-subject -->
+       </div>
+
+       <div class="feed-item feed-item-file">
+
+         <div class="feed-icon bg-success">
+           <i class="fa fa-phone"></i>
+         </div> <!-- /.feed-icon -->
+
+         <div class="feed-subject">
+
+           <h4><span class="text-success">T&eacute;l&eacute;phone 1:</span> <%= @prospect.tel1 %></h4>
+<hr>
+           <h4><span class="text-success">T&eacute;l&eacute;phone 2:</span> <%= @prospect.tel2 %></h4>
+<hr>
+           <h4><span class="text-success">T&eacute;l&eacute;phone 3:</span> <%= @prospect.tel3 %></h4> 
+<hr>
+           <h4><span class="text-success">T&eacute;l&eacute;phone Mobile:</span> <%= @prospect.mobile %></h4>
+<hr>
+           <h4><span class="text-success">E-mail:</span> <%= @prospect.mail %></h4>           
+
+         </div> <!-- /.feed-subject -->
+       </div>
+      
+    </div> <!-- /.tab-pane -->
+
+<% if @prospect.ficheprospect.nil? %>
+
+<% else %>
+
+    <div class="tab-pane fade" id="password-tab">
+      <div class="heading-block">
+        <h3>
+          Fiche de qualification
+        </h3>
+      </div> <!-- /.heading-block -->
+
+    <div class="feed-item feed-item-idea">
+
+        <div class="feed-icon bg-primary">
+          <i class="fa fa-user"></i>
+        </div> <!-- /.feed-icon -->
+
+        <div class="feed-subject">
+
+          <h4><span class="text-primary">Identifiant:</span> <%= @prospect.ficheprospect.id %></h4>
+<hr>
+          <h4><span class="text-primary">Age r&eacute;el:</span> <%= @prospect.ficheprospect.age %></h4>
+<hr>
+          <h4><span class="text-primary">Profession:</span> <%= @prospect.ficheprospect.profession %></h4>
+<hr>            
+          <h4><span class="text-primary">Situation familiale:</span> <%= @prospect.ficheprospect.famille %></h4>
+<hr>            
+          <h4><span class="text-primary">Commentaire:</span></h4>
+            <div class="feed-content">
+              <ul class="icons-list">
+                <li>
+                  <i class="icon-li fa fa-quote-left"></i>
+                  <% if @prospect.ficheprospect.commentaireprospect.nil? %>Pas de commentaire actuellement<% else %><%= @prospect.ficheprospect.commentaireprospect %><% end %>
+                </li>
+              </ul>
+            </div> <!-- /.feed-content --> 
+
+        </div> <!-- /.feed-subject -->
+      </div>
+       <div class="feed-item feed-item-image">
+
+         <div class="feed-icon bg-secondary">
+           <i class="fa fa-home"></i>
+         </div> <!-- /.feed-icon -->
+
+         <div class="feed-subject">
+
+           <h4><span class="text-secondary">Consomme des compl&eacute;ment de confort:</span> <% if @prospect.ficheprospect.consomationcomplement == true %>	Oui <% else %> Non <% end %></h4>
+<hr>
+           <h4><span class="text-secondary">Cat&eacute;gorie de complements:</span></h4>
+             <div class="feed-content">
+              <ul class="icons-list">
+                <li>
+                  <i class="icon-li fa fa-quote-left"></i>
+                  <% if @prospect.comment.nil? %>Pas de cat&eacute;gorie d&eacute;taill&eacute;e actuellemnt<% else %><%= @prospect.ficheprospect.categoriecomplementconsomer %><% end %>
+                </li>
+              </ul>
+            </div> <!-- /.feed-content -->
+<hr>
+           <h4><span class="text-secondary">Fr&eacute;quence de consomation:</span> <%= @prospect.ficheprospect.frequenceconsomation %></h4>          
+<hr>
+           <h4><span class="text-secondary">Satisfaction:</span> <%= @prospect.ficheprospect.satisfactioneffetcomplement %></h4>
+<hr>
+           <h4><span class="text-secondary">Origine des complements:</span> <%= @prospect.ficheprospect.originecomplement %></h4>
+<hr>
+           <h4><span class="text-secondary">Budget:</span> <%= @prospect.ficheprospect.budgetcomplement %></h4>
+<hr>
+           <h4><span class="text-secondary">Lieu d&acute;achat:</span> <%= @prospect.ficheprospect.lieuachatcomplement %></h4>
+<hr>
+           <p><%= link_to 'Modifier la fiche de qualification', edit_prospect_ficheprospect_path(@prospect, @prospect.ficheprospect), class: 'btn btn-secondary btn-lg btn-block' %></p>
+           
+        </div> <!-- /.feed-subject -->
+        </div>
+        
+ 
+    </div> <!-- /.tab-pane -->
+<% end %>
+  </div> <!-- /.tab-content -->
+
+</div> <!-- /.?? -->    
+
+</div> <!-- /.layout-main-righ -->
+ 
 
 <div id="basicModal" class="modal fade">
 
@@ -188,7 +273,7 @@
 
 	      <div class="form-group">	
               <%= form_for @prospect, :url => { :action => "update"} do |f| %>		
-	      <%= f.select :tel1prospection, [['Autorise le demarchage telephonique', 'Oui'], ['Interdit le demarchage telephonique', 'Interdit']], {prompt: 'Autorisation de teleprospection'}, {class: 'form-control ui-select'}  %>	
+	      <%= f.select :tel1prospection, [['Oui autorise le demarchage telephonique', 'oui'], ['Non, interdit le demarchage telephonique', 'non']], {prompt: 'Autorisation de teleprospection'}, {class: 'form-control ui-select'}  %>	
 	    
 	    </div> <!-- /.modal-body -->
 
@@ -204,3 +289,4 @@
 
       </div><!-- /.modal -->  
 </div><!-- /.modal fade--> 
+
