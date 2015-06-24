@@ -37,3 +37,4 @@ bower.json
 *.erb~
 *.rb~
 *.yml~
+*file~
