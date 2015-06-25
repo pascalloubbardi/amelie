@@ -1,5 +1,5 @@
 class FicheprospectsController < ApplicationController
-   before_action :set_ficheprospect, only: [:show, :edit, :update, :destroy]
+  before_action :set_ficheprospect, only: [:show, :edit, :update, :destroy]
   before_action :load_prospect
   # GET /ficheprospects
   # GET /ficheprospects.json
@@ -11,6 +11,10 @@ class FicheprospectsController < ApplicationController
   # GET /ficheprospects/1
   # GET /ficheprospects/1.json
   def show
+    if params[:tag]
+      @ficheprospect = Ficheprospect.tagged_with(params[:tag])
+      else
+    end
   end
 
   # GET /ficheprospects/new
@@ -29,7 +33,7 @@ class FicheprospectsController < ApplicationController
 
     respond_to do |format|
       if @ficheprospect.save
-        format.html { redirect_to [@prospect, @ficheprospect], notice: 'Ficheprospect was successfully created.' }
+        format.html { redirect_to prospect_path(@prospect), notice: 'Le prospect a ete qualifie avec succes.' }
         format.json { render :show, status: :created, location: @ficheprospect }
       else
         format.html { render :new }
@@ -43,7 +47,7 @@ class FicheprospectsController < ApplicationController
   def update  
     respond_to do |format|
       if @ficheprospect.update(ficheprospect_params)
-        format.html { redirect_to [@prospect, @ficheprospect], notice: 'Ficheprospect was successfully updated.' }
+        format.html { redirect_to prospect_path(@prospect), notice: 'La qualification du prospect a ete modifiee avec succes.' }
         format.json { render :show, status: :ok, location: @ficheprospect }
       else
         format.html { render :edit }
@@ -73,6 +77,6 @@ class FicheprospectsController < ApplicationController
     end 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ficheprospect_params
-      params.require(:ficheprospect).permit(:age, :profession, :famille, :consomationcomplement, :frequenceconsomation, :beneficerechercher, :categoriecomplementconsomer, :satisfactioneffetcomplement, :originecomplement, :budgetcomplement, :lieuachatcomplement, :commentaireprospect, :prospect_id)
+      params.require(:ficheprospect).permit(:age, :profession, :famille, :consomationcomplement, :frequenceconsomation, :beneficerechercher, :categoriecomplementconsomer, :satisfactioneffetcomplement, :originecomplement, :budgetcomplement, :lieuachatcomplement, :commentaireprospect, :prospect_id, :tag_list)
     end
 end

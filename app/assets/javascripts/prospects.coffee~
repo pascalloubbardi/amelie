@@ -3,7 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-        $('#prospects').dataTable 'columnDefs': [ {
-    type: 'phoneNumber'
-    targets: 0
-  } ]
+        $('#prospects').dataTable('language': 'url': '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json')

@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-        $('#prospects').dataTable()
+        $('#prospects').dataTable('language': 'url': '//cdn.datatables.net/plug-ins/1.10.7/i18n/French.json')

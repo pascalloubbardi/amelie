@@ -31,7 +31,7 @@
   
       <tr>
         <td><%= ficheprospect.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= @prospect.find_by_id(ficheprospect.prospect_id).nom %><%= @prospect.find_by_id(ficheprospect.prospect_id).prenom %></td>
+        <td><%= @prospect.find_by_id(ficheprospect.prospect_id).nom.upcase %><%= @prospect.find_by_id(ficheprospect.prospect_id).prenom %></td>
         <td width="100px" align="center"><% if ficheprospect.consomationcomplement == true %><i class="fa fa-check-circle-o text-success" style="font-size:30px"></i><% else %><i class="fa fa-times-circle-o text-danger" style="font-size:30px"></i><% end %></td>
 	<td><%= ficheprospect.age %></td>
 	<td><%= @prospect.find_by_id(ficheprospect.prospect_id).tel1prospection %></td>

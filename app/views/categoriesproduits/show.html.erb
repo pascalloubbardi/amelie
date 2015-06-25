@@ -32,14 +32,14 @@
       <tr>
         <td><%= produit.referenceproduit %></td>
         <td><%= image_tag produit.image.url(:thumb) %></td>
-        <td><%= produit.nonproduit %></td>
+        <td><%= produit.nonproduit.upcase %></td>
         <td><%= produit.origineproduit %></td>
         <td><%= produit.presentationprod %></td>
         <td><%= produit.conditionnementproduit %></td>	
         <td width="100px">
 	    
 	    <%= link_to produit_path(produit), class: "btn btn-secondary" do %>
-  	    <i class="fa  fa-arrow-circle-right"></i>&nbsp;&nbsp;<%= produit.nonproduit %>
+  	    <i class="fa  fa-arrow-circle-right"></i>
             <% end %>
 
         </td>

@@ -41,13 +41,15 @@
 		    <div class="form-group">
 		      <%= f.label :age, 'Age r&eacute;el'.html_safe, class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre age?</span>	
-    		      <%= f.number_field :age %>	
+    		      <%= f.number_field :age, class: "form-control" %>	
   		    </div>
+<hr>
   		    <div class="form-group">
     		      <%= f.label :profession, 'Profession', class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre profession actuellement?</span>	
     		      <%= f.select :profession, [['Salarie', 'Salarie'], ['Entrepreuneur', 'Entrepreuneur'], ['Retraite', 'Retraite'], ['Sans emploi', 'Sans emploi']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %> 
   		    </div>
+<hr>
   		    <div class="form-group">
     		      <%= f.label :famille, 'Situation familiale', class: 'text-primary' %>
 		      <span class="help-block" style="margin-bottom: 0;">Quel est votre situation familiale actuellement?</span>
@@ -85,44 +87,59 @@
                   <div class="select2-container form-control">
 		    <div class="form-group">
 		      <%= f.label :consomationcomplement, 'Consomation de complements alimentaires de confort', class: 'text-primary' %>
-		      <span class="help-block" style="margin-bottom: 0;">Consomez-vous des complements alimentaires? => checker si la r&eacute;ponse est positive.</span>
-    		      <%= f.check_box :consomationcomplement %> 		
+		      <span class="help-block" style="margin-bottom: 0;">Consomez-vous des complements alimentaires? </span>
+    		      <%= f.check_box :consomationcomplement, class: 'iCheck-helper' %>&nbsp;&nbsp;<= checker si la r&eacute;ponse est positive.		
   		    </div>
+<hr>              
 		  <div class="form-group">
     		    <%= f.label :categoriecomplementconsomer, 'Categories de complements alimentaires consomer', class: 'text-primary' %>
-		    <span class="help-block" style="margin-bottom: 0;">Quels complements alimentaires consomez-vous?</span>
-    		    <%= f.text_area(:categoriecomplementconsomer, cols: 50, rows: 5)  %>
-		    </div>
+		    <span class="help-block" style="margin-bottom: 0;">Quels cat&eacute;gorie de complements alimentaires consomez-vous?</span>
+                    <%= f.text_field :tag_list, class: 'form-control' %>
+                    <br> 
+		    <%= f.label :tag_list, 'Tags autoris&eacute;s (Vitamine, Cosmetique, Anti-age, Circulation, Confort-urinaire, Articulation, Digestion, Beaute, defenses-naturelles, Detente, Energie, Minceur, Huille-essentielle)'.html_safe %>
+                    <br> 
+                    <span class="help-block" style="margin-bottom: 0;">Infos compl&eacute;mentaires</span>
+                      
+		        <%= f.text_area(:categoriecomplementconsomer, cols: 50, rows: 5)  %>  	
+		      
+		    </div> 			
+<hr>
   		  <div class="form-group">
     		    <%= f.label :frequenceconsomation, 'Frequence de consomation', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">A quelle fr&eacute;quence consomez-vous ces complements alimentaires?</span>
     		    <%= f.select :frequenceconsomation, [['quotidienne', 'quotidienne'], ['hebdomadaire', 'hebdomadaire'], ['mensuelle', 'mensuelle'], ['occasionnelle', 'occasionnelle']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>
   		  </div>
+<hr>
   		  <div class="form-group">
     		    <%= f.label :beneficerechercher, 'Benefice rechercher', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Quels b&eacute;n&eacute;fices recherchez vous avec les complement alimentaires que vous consomez?.</span>
-    		    <%= f.text_area :beneficerechercher %>	
-  		  </div>		 
+    		    <%= f.text_area(:beneficerechercher, cols: 50, rows: 5) %>	
+  		  </div>
+<hr>		 
                   <div class="form-group">
     		    <%= f.label :satisfactioneffetcomplement, 'Satisfaction des complements alimentaires', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">&Ecirc;tes-vous satisfait(e) des complements alimentaires que vous consomez?.</span>
     		    <%= f.select :satisfactioneffetcomplement, [['satisfait', 'satisfait'], ['pas satisfait', 'pas satisfait'], ['peu satisfait', 'peu satisfait']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
+<hr>
 		  <div class="form-group">
     		    <%= f.label :originecomplement, 'Origine des complements alimentaires', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Consomez-vous des complements alimentaires d&acute;origine biologique ou pas?.</span>
 		    <%= f.select :originecomplement, [['biologique', 'biologique'], ['Non biologique', 'Non biologique']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
+<hr>
 		  <div class="form-group">
     		    <%= f.label :lieuachatcomplement, 'Lieux d achat des complements alimentaires ', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Ou achetez-vous les complements alimentaires que vous consommez?.</span>
     		    <%= f.select :lieuachatcomplement, [['pharmacie', 'pharmacie'], ['magasin specialise', 'magasin specialise'], ['grande surface', 'grande surface'], ['internet', 'internet'], ['vente sur catalogue', 'vente sur catalogue'], ['vente directe', 'vente directe']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
+<hr>
 		  <div class="form-group">
     		    <%= f.label :budgetcomplement, 'Buget mensuel', class: 'text-primary' %>
 		    <span class="help-block" style="margin-bottom: 0;">Quel est votre budget mensuel?</span>
 		    <%= f.select :budgetcomplement, [['50', '50'], ['100', '100'], ['200', '200'], ['300', '300'], ['400', '400']], {prompt: 'Choisir dans la liste'}, {class: 'form-control ui-select'}  %>	
   		  </div>
+<hr>
 		  <div class="form-group">
     		    <%= f.label :commentaireprospect, 'Commentaire', class: 'text-primary' %><br>
     		    <%= f.text_area(:commentaireprospect, cols: 50, rows: 5) %>	

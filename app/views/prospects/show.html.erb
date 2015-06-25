@@ -223,12 +223,12 @@
 
            <h4><span class="text-secondary">Consomme des compl&eacute;ment de confort:</span> <% if @prospect.ficheprospect.consomationcomplement == true %>	Oui <% else %> Non <% end %></h4>
 <hr>
-           <h4><span class="text-secondary">Cat&eacute;gorie de complements:</span></h4>
+           <h4><span class="text-secondary">Cat&eacute;gorie de complements:</span> <%= raw @prospect.ficheprospect.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></h4>
              <div class="feed-content">
               <ul class="icons-list">
                 <li>
                   <i class="icon-li fa fa-quote-left"></i>
-                  <% if @prospect.comment.nil? %>Pas de cat&eacute;gorie d&eacute;taill&eacute;e actuellemnt<% else %><%= @prospect.ficheprospect.categoriecomplementconsomer %><% end %>
+                  <% if @prospect.ficheprospect.categoriecomplementconsomer.nil? %>Pas de cat&eacute;gorie d&eacute;taill&eacute;e actuellemnt<% else %><%= @prospect.ficheprospect.categoriecomplementconsomer %><% end %>
                 </li>
               </ul>
             </div> <!-- /.feed-content -->

@@ -94,7 +94,7 @@
 
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseOne">
+                <a class="accordion-toggle"style="background-color:#5CB85C;color:#fff" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseOne">
                   
                   Composition
               </a>
@@ -112,7 +112,7 @@
           <div class="panel ">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseTwo">
+                <a class="accordion-toggle" style="background-color:#EC971F;color:#fff" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseTwo">
                 Conditionnement
                 </a>
               </h4>
@@ -129,7 +129,7 @@
           <div class="panel ">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseThree">
+                <a class="accordion-toggle" style="background-color:#31B0D5;color:#fff" data-toggle="collapse" data-parent="#accordion-paneled" href="#collapseThree">
                 Conseils d&acute;utilisation
                 </a>
               </h4>
@@ -146,7 +146,6 @@
         </div> <!-- /.accordion -->
             
           </div> <!-- /.col -->
-
 
           <div class="col-md-3">
 
@@ -187,7 +186,9 @@
             </div> <!-- /.heading-block -->
 
             <%= link_to '&Eacute;diter le produit'.html_safe, edit_produit_path(@produit), data: {no_turbolink: true}, class: 'btn btn-warning btn-lg btn-block' %>
+	    <br> 	
 	    <%= link_to 'Liste des produits', produits_path, data: {no_turbolink: true}, class: 'btn btn-secondary btn-lg btn-block' %>
+	    <br>	
             <%= link_to 'Cat&eacute;gories de produits'.html_safe, categoriesproduits_path, data: {no_turbolink: true}, class: 'btn btn-info btn-lg btn-block' %>
 
           </div> <!-- /.col -->

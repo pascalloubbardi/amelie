@@ -14,6 +14,7 @@
         </div> <!-- /.portlet-header -->
 
         <div class="portlet-body">
+
 <table id="prospects" class="table table-striped table-bordered table-hover ui-datatable">
   <thead>
     <tr>
@@ -40,7 +41,7 @@
         <td><%= prospect.prenom %></td>
         <td><%= prospect.agemoyen %></td>
 	<td><%= prospect.tel1prospection %></td>	
-        <td width="100px">
+        <td>
 	    
 	    <%= link_to prospect, data: {no_turbolink: true}, class: "btn btn-secondary label" do %>
   	    <i class="fa fa-times"></i>

@@ -2,7 +2,14 @@
     
         <div class="col-sm-7 col-md-8 layout-main">
 
-	  <p id="notice"><%= notice %></p>
+	   <% [:notice, :error, :alert, :success].each do |level| %>
+            <% unless flash[level].blank? %>
+	      <div class="alert alert-success">
+                <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+                <p id="notice"><%= notice %></p>
+              </div>
+	    <% end %>
+          <% end %>
 
 
 

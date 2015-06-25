@@ -87,7 +87,12 @@
 
 		  <tr>
                     <th>Categorie de complements</th>
-                    <td><%= @ficheprospect.categoriecomplementconsomer %></td>
+                    <td><%= @ficheprospect.categoriecomplementconsomer %>
+                      <% tag_cloud Ficheprospect.tag_counts, %w[s m l] do |tag, css_class| %>
+    		      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+                      <% end %>
+                      Tags: <%= raw @ficheprospect.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %> 
+                    </td>
                   </tr>
 
                   <tr>
