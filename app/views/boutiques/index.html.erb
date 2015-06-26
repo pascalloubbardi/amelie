@@ -1,0 +1,58 @@
+
+  <div class="row">
+    <div class="col-xs-6">
+      <h1><%= link_to "Boutique", boutiques_index_path %></h1>
+    </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'carts/cart_text' %></h1>
+      </div>
+    </div>
+<hr>
+
+
+        <div class="row">
+
+          <div class="col-md-3 col-sm-5">
+
+            <ul id="myTab" class="nav nav-pills nav-stacked">
+              <li class="active">
+                <a aria-expanded="true" href="#home-17" data-toggle="tab">
+                  Am&eacute;lie Boutique
+                </a>
+              </li>
+
+              <% @categoriesproduit.each do |categorie| %>
+              <li>
+                <a aria-expanded="true" href="#home-<%= categorie.id %>" data-toggle="tab">
+                  <%= categorie.nomcategorie %>
+                </a>
+              </li>
+              <% end %>
+             
+            </ul>
+
+          </div> <!-- /.col -->
+
+          <div class="col-md-9 col-sm-7">
+
+            <div id="myTabContent" class="tab-content stacked-content">
+              <div class="tab-pane fade active in" id="home-17">
+                <h4>Selectionnez les cat&eacute;gorie de produit pour former la commande</h4>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+
+              </div>
+              <% @categoriesproduit.each do |categorie| %> 
+              <div class="tab-pane fade" id="home-<%= categorie.id %>">
+                <% @produits.each do |produit| %> 
+                  <%= render "product_row", produit: produit, order_item: @order_item %>
+              <% end %> 
+              </div> <!-- /.tab-pane -->
+              <% end %> 
+            
+
+            </div> <!-- /.tab-content -->
+
+          </div> <!-- /.col -->
+
+        </div> <!-- /.row -->
+

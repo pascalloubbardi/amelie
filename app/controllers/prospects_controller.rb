@@ -19,7 +19,7 @@ class ProspectsController < ApplicationController
 
   def import
    Prospect.import(params[:file])
-   redirect_to root_url, notice: "Prospects imported."
+   redirect_to root_url, notice: "Les Prospects on ete importe avec succes."
   end
 
   # GET /prospects/1/edit
