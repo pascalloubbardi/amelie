@@ -24,7 +24,7 @@
               <% @categoriesproduit.each do |categorie| %>
               <li>
                 <a aria-expanded="true" href="#home-<%= categorie.id %>" data-toggle="tab">
-                  <%= categorie.nomcategorie %>
+                  <%= categorie.nomcategorie %> : <%= @produits.where(categoriesproduit_id: categorie.id).count %> r&eacute;f&eacuterence
                 </a>
               </li>
               <% end %>
@@ -43,7 +43,7 @@
               </div>
               <% @categoriesproduit.each do |categorie| %> 
               <div class="tab-pane fade" id="home-<%= categorie.id %>">
-                <% @produits.each do |produit| %> 
+                <% @produits.where(categoriesproduit_id: categorie.id).each do |produit| %> 
                   <%= render "product_row", produit: produit, order_item: @order_item %>
               <% end %> 
               </div> <!-- /.tab-pane -->
