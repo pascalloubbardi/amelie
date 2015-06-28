@@ -126,8 +126,8 @@
 
                  <div class="form-group">
 		    <div class="col-md-7">	
-    		      <h5><%= f.label :price, 'Prix de vente TTC'.html_safe, class: 'col-md-12 control-label' %></h5>    
-    		      <%= f.text_field :price, class: 'form-control' %>
+    		      <h5><%= f.label :prixventeproduit, 'Prix de vente TTC'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :prixventeproduit, class: 'form-control' %>
 		    </div>
   		 </div>
 
@@ -148,7 +148,20 @@
 		    </div>
   		  </div>
 
-                </div><!-- /.col -->
+               </div><!-- /.col -->
+
+			        
+		
+                <div class="col-sm-6">
+
+                 <div class="form-group">
+		    <div class="col-md-7">	
+    		      <h5><%= f.label :prixachatproduit, 'Prix d&acute;achat'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :prixachatproduit, class: 'form-control' %>
+		    </div>
+  		 </div>
+
+	        </div><!-- /.col -->   
 
 	      </div> <!-- /.row -->   
 

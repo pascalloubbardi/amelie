@@ -137,16 +137,12 @@
                 <div class="col-sm-10">
 
                   <h5>Importer un fichier prospect au format CSV</h5>
-                   
 
-                     <%= form_tag import_prospects_path, multipart: true do %>
-		     <div class="form-control">
-  		     <%= file_field_tag :file %>
-		     </div>
-                     <br>
-                     <%= submit_tag "Importer le ficher CSV", class: 'btn btn-secondary btn-lg btn-block ' %>
-  		     <% end %>
-                   
+                 <%= form_tag import_prospects_path, multipart: true do %>
+  		   <%= file_field_tag :file %>
+		   <br>
+                   <%= submit_tag "Importer le ficher CSV", class: 'btn btn-secondary btn-lg btn-block ' %>
+  		 <% end %>
 
                 </div> <!-- /.col -->
 

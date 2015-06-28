@@ -170,9 +170,7 @@
           <li>
             <%= link_to 'Accueil', root_path %>
           </li>    
-          <li>
-            <%= link_to 'Boutique', boutiques_index_path %>
-          </li>  
+
           <li>
             <a href='#'>Utilisateurs</a>
           </li>    
@@ -273,10 +271,10 @@
             <ul class="dropdown-menu" role="menu">
 
               <li>
-                <a href="./components-tabs.html">
+                <%= link_to clients_index_path, data: { no_turbolink: true } do %>
                 <i class="fa fa-bars dropdown-icon "></i> 
-                Tabs &amp; Accordions
-                </a>
+                Clients
+                <% end %>
               </li>
 
               <li>

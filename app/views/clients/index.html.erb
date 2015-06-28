@@ -1,14 +1,14 @@
 <div class="row">
 
 
-<h2 class="">Listes des fiches Prospects qualifi&eacute;</h2>
+<h2 class="">Clients</h2>
 
       
       <div class="portlet portlet-default">
 
         <div class="portlet-header">
           <h4 class="portlet-title">
-            <u>Actuellement <%= Ficheprospect.all.count %> fiches prospect qualifi&eacute;</u>
+            <u>Compter le nb de client qui on passer au moins une commande</u>
           </h4>
         </div> <!-- /.portlet-header -->
 
@@ -17,40 +17,40 @@
 <table id="prospects" class="table table-striped table-bordered table-hover ui-datatable">
 <thead>
     <tr>
-      <th>Date de cr&eacute;ation</th>
-      <th>Ville</th>
-      <th>Prospect</th>
-      <th>Age</th>		
-      <th>Consomation</th>	 	
+      <th>ID</th>
+      <th>Nom</th>		
+      <th>Pr&eacute;nom</th>
+      <th>Age</th>	 	
       <th>Prospection</th>
+      <th>Consomation</th>
       <th>Action</th>	
     </tr>
   </thead>
 
   <tbody>
-<% @ficheprospect.each do |ficheprospect| %>
+<% @client.each do |client| %>
   
       <tr>
-        <td><%= ficheprospect.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= @prospect.find_by_id(ficheprospect.prospect_id).ville %></td>
-        <td><%= @prospect.find_by_id(ficheprospect.prospect_id).nom.upcase %><%= @prospect.find_by_id(ficheprospect.prospect_id).prenom %></td>
-	<td width="50px" align="center"><%= ficheprospect.age %></td>
+        <td><%= client.id %></td>
+        <td><%= client.nom %></td>
+        <td><%= client.prenom %></td>
+	<td><%= client.ficheprospect.age %></td>
         <td width="100px" align="center">
-            <% if ficheprospect.consomationcomplement == true %>
+            <% if client.ficheprospect.consomationcomplement == true %>
               <i class="fa fa-check-circle-o text-success" style="font-size:30px"></i><element hidden>true</element hidden>
             <% else %>
               <i class="fa fa-times-circle-o text-danger" style="font-size:30px"></i>
             <% end %>
         </td>
 	<td width="100px" align="center" >
-            <% if @prospect.find_by_id(ficheprospect.prospect_id).tel1prospection == 'oui' %>
+            <% if client.tel1prospection == 'oui' %>
               <i class="fa fa-check-circle-o text-success" style="font-size:30px"></i><element hidden>true</element hidden>
             <% else %>
               <i class="fa fa-times-circle-o text-danger" style="font-size:30px"></i>
             <% end %>
         </td>
         <td width="100px">
-	    <%= link_to prospect_path(ficheprospect.prospect_id, ficheprospect), data: { no_turbolink: true }, :class => "btn btn-sm btn-secondary" do %>
+	    <%= link_to prospect_orders_path(client), data: {no_turbolink: true}, :class => "btn btn-sm btn-secondary" do %>
   	    Prospect &nbsp;<i class="fa fa-arrow-right"></i> 
             <% end %>
         </td>

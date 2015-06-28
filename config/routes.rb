@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'boutiques/index'
+  get 'clients/index'
 
-  get 'order_items/create'
-
-  get 'order_items/update'
-
-  get 'order_items/destroy'
-
-  get 'carts/show'
+  resources :prospects do
+  resources :orders
+  end
 
   resources :produits
   resources :categoriesproduits
@@ -31,13 +27,6 @@ Rails.application.routes.draw do
   root :to => 'account#index'
 
   get 'tags/:tag', to: 'ficheprospects#show', as: :tag
-
-
-  resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
-  
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

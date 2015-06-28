@@ -2,7 +2,7 @@ class Prospect < ActiveRecord::Base
 
 
   has_one :ficheprospect, :dependent => :destroy
-
+  has_many :orders
 
 # import fichier scv dans prospect
   require 'csv'
