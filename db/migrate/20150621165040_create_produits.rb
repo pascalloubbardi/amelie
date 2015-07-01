@@ -7,9 +7,9 @@ class CreateProduits < ActiveRecord::Migration
       t.string :conditionnementproduit
       t.string :gammeproduit
       t.text :conseilutilisation
-      t.string :prixventeproduit
-      t.string :prixachatproduit
+      t.decimal :price, precision: 12, scale: 3
       t.string :categoriesproduit_id
+      t.boolean :active
 
       t.timestamps null: false
     end

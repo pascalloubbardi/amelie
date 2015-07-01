@@ -126,8 +126,8 @@
 
                  <div class="form-group">
 		    <div class="col-md-7">	
-    		      <h5><%= f.label :prixventeproduit, 'Prix de vente TTC'.html_safe, class: 'col-md-12 control-label' %></h5>    
-    		      <%= f.number_field :prixventeproduit, class: 'form-control' %>
+    		      <h5><%= f.label :prixventeproduit, 'Prix de vente TTC'.html_safe, class: 'col-md-12 control-label' %></h5>
+                      <%= f.text_field :price, :value => number_to_currency(f.object.price, :precision => 2, unit: "€", separator: ",", delimiter: "", format: "%n %u"), class: 'form-control' %> 
 		    </div>
   		 </div>
 
@@ -156,8 +156,8 @@
 
                  <div class="form-group">
 		    <div class="col-md-7">	
-    		      <h5><%= f.label :prixachatproduit, 'Prix d&acute;achat'.html_safe, class: 'col-md-12 control-label' %></h5>    
-    		      <%= f.number_field :prixachatproduit, class: 'form-control' %>
+    		      <h5><%= f.label :stockprod, 'Disponibilit&eacute; en unit&eacute;'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <%= f.number_field :stockprod, class: 'form-control' %>
 		    </div>
   		 </div>
 
@@ -169,7 +169,7 @@
 
               <div class="row"> 
      
-       	       <div class="col-sm-6">
+       	       <div class="col-sm-12">
 
 		 <div class="form-group">
 		    <div class="col-md-7">	
@@ -180,16 +180,7 @@
 
                </div><!-- /.col -->
 		
-                <div class="col-sm-6"  style="margin-bottom:20px">
-
-                 <div class="form-group">
-		    <div class="col-md-7">	
-    		      <h5><%= f.label :stockprod, 'Disponibilit&eacute; en unit&eacute;'.html_safe, class: 'col-md-12 control-label' %></h5>    
-    		      <%= f.number_field :stockprod, class: 'form-control' %>
-		    </div>
-  		 </div>
-
-	        </div><!-- /.col -->
+                
 
              </div> <!-- /.row -->
 

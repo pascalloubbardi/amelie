@@ -8,6 +8,18 @@
           <div class="profile-avatar">
             <%= image_tag @produit.image.url(:medium), class: 'profile-avatar-img img-responsive thumbnail' %>
           </div> <!-- /.profile-avatar -->
+
+          <div class="list-group">  
+
+            <a href="javascript:;" class="list-group-item">
+              <h3 class="pull-right"><i class="fa fa-list-ul text-primary"></i></h3>
+	      <p class="list-group-item-text" style="margin-bottom:5px">Prix:</p>	
+              <h4 class="list-group-item-heading"><%= number_to_currency @produit.price, unit: "€", separator: ",", delimiter: "", format: "%n %u" %></h4>                      
+            </a>
+          </div> <!-- /.list-group -->
+
+
+
 <!--
           <div class="list-group">  
 
