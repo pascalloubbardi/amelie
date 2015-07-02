@@ -28,7 +28,7 @@
       <tr>
  	<td><%= categoriesproduit.id %></td>
         <td><%= categoriesproduit.nomcategorie.upcase %></td>
-	<td><% if categoriesproduit.descriptioncat.nil? %>Veuillez ajouter une d&eacute;scription &agrave; la cat&eacute;gorie.<% else %><%= categoriesproduit.descriptioncat %><% end %></td>	
+	<td><% if categoriesproduit.descriptioncat.present? %><%= categoriesproduit.descriptioncat %><% else %>Veuillez ajouter une d&eacute;scription &agrave; la cat&eacute;gorie.<% end %></td>	
         <td class="text-center"><%= link_to '&Eacute;diter'.html_safe, edit_categoriesproduit_path(categoriesproduit), class: 'btn btn-warning btn-sm'  %></td>
         <td class="text-center"><%= link_to 'D&eacutetruire'.html_safe, categoriesproduit, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
         <td class="text-center"><%= link_to 'Produits'.html_safe, categoriesproduit,data: {no_turbolink: true}, class: 'btn btn-info btn-sm'  %></td>

@@ -1,7 +1,7 @@
 class Produit < ActiveRecord::Base
 
   has_many :order_items
-  default_scope { where(active: true) }
+  #default_scope { where(active: true) }
   belongs_to :categoriesproduit
   validates :categoriesproduit, presence: true 
 

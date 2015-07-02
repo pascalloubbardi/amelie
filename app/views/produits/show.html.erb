@@ -12,9 +12,15 @@
           <div class="list-group">  
 
             <a href="javascript:;" class="list-group-item">
-              <h3 class="pull-right"><i class="fa fa-list-ul text-primary"></i></h3>
+              <h3 class="pull-right"><i class="fa  fa-euro text-primary"></i></h3>
 	      <p class="list-group-item-text" style="margin-bottom:5px">Prix:</p>	
               <h4 class="list-group-item-heading"><%= number_to_currency @produit.price, unit: "€", separator: ",", delimiter: "", format: "%n %u" %></h4>                      
+            </a>
+
+            <a href="javascript:;" class="list-group-item">
+              <h3 class="pull-right"><i class="fa  fa-euro text-primary"></i></h3>
+	      <p class="list-group-item-text" style="margin-bottom:5px">R&eacute;f&eacute;rence active:</p>	
+              <h4 class="list-group-item-heading"><% if @produit.active %>Oui<% else %>Non<% end %></h4>                      
             </a>
           </div> <!-- /.list-group -->
 
@@ -79,7 +85,7 @@
 
           <br>
 
-          <p><% if @produit.presentationprod.nil? %>Veuillez ajouter une pr&eacute;sentation au produit.<% else %><%= @produit.presentationprod %><% end %></p>
+          <p><% if @produit.presentationprod.present? %><%= @produit.presentationprod %><% else %>Veuillez ajouter une pr&eacute;sentation au produit.<% end %></p>
 
           <hr>
 
@@ -94,7 +100,7 @@
  
           <br>
 
-          <p><% if @produit.descripionprod.nil? %>Veuillez ajouter une d&eacute;scription au produit.<% else %><%= @produit.descripionprod %><% end %></p>
+          <p><% if @produit.descripionprod.present? %><%= @produit.descripionprod %><% else %>Veuillez ajouter une d&eacute;scription au produit.<% end %></p>
 
           <hr>
 
@@ -115,7 +121,7 @@
 
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
-             <% if @produit.compositionprod.nil? %>Veuillez ajouter la composition du produit.<% else %><%= @produit.compositionprod %><% end %>
+             <% if @produit.compositionprod.present? %><%= @produit.compositionprod %><% else %>Veuillez ajouter la composition du produit.<% end %>
               </div> <!-- /.panel-body -->
             </div> <!-- /.panel-collapse -->
 
@@ -132,7 +138,7 @@
 
             <div id="collapseTwo" class="panel-collapse collapse">
               <div class="panel-body">
-              <% if @produit.conditionnementproduit.nil? %>Veuillez ajouter le type de conditionnement du produit.<% else %><%= @produit.conditionnementproduit %><% end %>
+              <% if @produit.conditionnementproduit.present? %><%= @produit.conditionnementproduit %><% else %>Veuillez ajouter le type de conditionnement du produit.<% end %>
               </div> <!-- /.panel-body -->
             </div> <!-- /.panel-collapse -->
 
@@ -149,7 +155,7 @@
 
             <div id="collapseThree" class="panel-collapse collapse">
               <div class="panel-body">
-	      <% if @produit.conseilutilisation.nil? %>Veuillez ajouter les conseils d&acute;utilisation du produit.<% else %><%= @produit.conseilutilisation %><% end %>
+	      <% if @produit.conseilutilisation.present? %><%= @produit.conseilutilisation %><% else %>Veuillez ajouter les conseils d&acute;utilisation du produit.<% end %>
               </div> <!-- /.panel-body -->
             </div> <!-- /.panel-collapse -->
 

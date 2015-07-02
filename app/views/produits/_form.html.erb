@@ -72,7 +72,7 @@
                   <div class="form-group">
 		    <div class="col-md-7">	
     		      <h5><%= f.label :categoriesproduit, 'Cat&eacute;gorie'.html_safe, class: 'col-md-3 control-label' %></h5>
-		      <%= select_tag(:categoriesproduit_id, options_for_select(@categoriesproduits), class: 'form-control', style: "text-transform: uppercase", required: true ) %>	
+		      <%= select_tag(:categoriesproduit_id, options_for_select(@categoriesproduits), :include_blank => true, class: 'form-control', style: "text-transform: uppercase", required: true ) %>	
 		    </div>
   		  </div>
 		
@@ -112,7 +112,7 @@
                 <div class="col-sm-6">
 
                  <div class="form-group">
-		    <div class="col-md-7">	
+		    <div class="col-md-12">	
     		      <h5><%= f.label :descripionprod, 'D&eacute;scription'.html_safe, class: 'col-md-3 control-label' %></h5>    
     		      <%= f.text_area :descripionprod, class: 'form-control' %>
 		    </div>
@@ -142,7 +142,7 @@
        	        <div class="col-sm-6">
 
   		  <div class="form-group">
-		    <div class="col-md-7">	
+		    <div class="col-md-12">	
     		      <h5><%= f.label :presentationprod, 'Pr&eacute;sentation'.html_safe, class: 'col-md-3 control-label' %></h5>    
     		      <%= f.text_area :presentationprod, class: 'form-control' %>
 		    </div>
@@ -169,10 +169,10 @@
 
               <div class="row"> 
      
-       	       <div class="col-sm-12">
+       	       <div class="col-sm-8">
 
-		 <div class="form-group">
-		    <div class="col-md-7">	
+	         <div class="form-group">
+		    <div class="col-md-12">	
     		      <h5><%= f.label :conseilutilisation, 'Conseil d&acute;utilisation'.html_safe, class: 'col-md-12 control-label' %></h5>    
     		      <%= f.text_area :conseilutilisation, class: 'form-control' %>
 		    </div>
@@ -180,7 +180,20 @@
 
                </div><!-- /.col -->
 		
-                
+               <div class="col-sm-4">
+
+		 <div class="form-group">
+		    <div class="col-md-12">	
+    		      <h5><%= f.label :conseilutilisation, 'R&eacute;f&eacute;rence active?'.html_safe, class: 'col-md-12 control-label' %></h5>    
+    		      <div><%= f.label :active, "Oui", :value => true %>
+                           <%= f.radio_button :active, true %></div>
+
+                      <div><%= f.label :active, "Non", :value => false %>
+                           <%= f.radio_button :active, false %></div>
+		    </div>
+  		 </div>
+
+               </div><!-- /.col -->  
 
              </div> <!-- /.row -->
 

@@ -27,6 +27,7 @@
       <th>Conditionnement</th>
       <th>Cat&eacutegorie</th>
       <th>Stock</th>
+      <th>Actif</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -37,9 +38,10 @@
         <td><%= produit.referenceproduit %></td>
         <td><%= produit.nonproduit %></td>
         <td><%= produit.origineproduit %></td>
-        <td><%= produit.presentationprod %></td>
+        <td><% if produit.presentationprod.present? %><%= produit.presentationprod %><% else %>Veuillez ajouter une pr&eacute;sentation &agrave; la r&eacute;f&eacute;rence<% end %></td>
         <td><%= produit.conditionnementproduit %></td>
         <td><%= link_to Categoriesproduit.find(produit.categoriesproduit_id).nomcategorie.upcase, categoriesproduit_path(produit.categoriesproduit_id) %></td>
+        <td><% if produit.active %>Oui<% else %>Non<% end %></td>
         <td><% if produit.stockprod.nil? %> 0 <% else %><%= produit.stockprod %><% end %></td>	
         <td>
 	    
